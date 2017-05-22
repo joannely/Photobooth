@@ -1,0 +1,45 @@
+<!doctype HTML>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="home.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width"> 
+<title>home</title>
+</head>
+
+<body>
+<div id="title">Photobooth.</div>
+<div id="main">
+	<div id="photos">
+
+	</div>
+	<div id="toolbar">
+		<div class="toolItem" onClick="showUploadOptions()">
+			<div class="toolIcon"><img id="uploadIcon" src="../photobooth/uploadIcon-01.png" /></div>upload
+		</div>
+		<div id="uploadOptions" class="toolItemOptions">
+			<label for="fileSelector">choose file..</label>
+			<input type="file" name="photo" id="fileSelector" onchange="showFileName()" />
+ 			<p id="fileChose">no file chosen</p>
+			<button onClick="uploadFile()">upload</button>
+		</div>
+		<div class="toolItem" onClick="showFilterOptions()">
+			<div class="toolIcon"><img src="../photobooth/filterIcon-01.png" /></div>filter
+		</div>
+		<div id="filterOptions" class="toolItemOptions">
+			<input id="filterBox" type="text" size="20" placeholder="filter">
+			<button onClick="enterFilter()">enter</button>
+			<button onClick="clearFilter()">clear filter</button>
+		</div>
+		<div class="toolItem" onClick="showFavoritesOptions()">
+			<div class="toolIcon"><img src="../photobooth/favoritesIcon.png" /></div>favorites
+		</div>
+		<div id="favoritesOptions" class="toolItemOptions">
+			<button onClick="clearFavsFilter()">clear filter</button>
+		</div>
+
+	</div>
+</div>
+<script src="photo.js"></script>
+</body>
+</html>

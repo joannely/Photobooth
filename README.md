@@ -1,2 +1,2 @@
-# photobooth
-web app for users to upload/search/label/favorite their photos
+# Photobooth
+website for users to upload/tag/search their photos
