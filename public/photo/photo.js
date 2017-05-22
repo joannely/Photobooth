@@ -64,7 +64,7 @@ function createImg() {
 	menuIcon.style.width = "50px";
 	menuIcon.style.height = "auto";
 	menuIcon.style.alignSelf = "flex-end";
-	icon.addEventListener("click", function(event) {
+	menuIcon.addEventListener("click", function(event) {
 		var elm = event.target || event.srcElement;
 		elm.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
 		elm.style.display = "none"	

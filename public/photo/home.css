@@ -171,9 +171,6 @@ label {
 	bottom: 5px;
 	right: 0;
 	z-index: 1;
-	border-style: solid;
-	border-color: black;
-	border-width: 1px;	
 }
 
 .menuItem {
