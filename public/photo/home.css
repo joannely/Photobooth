@@ -201,7 +201,7 @@ label {
 }
 
 .inputLabel {
-	width: 250px;
+	width: 246px;
 	background-color: white;
 	color: black;
 	margin-top: 0;
@@ -211,6 +211,7 @@ label {
 	border-top-style: none;
 	font-family: fontGoudy, serif;
 	font-size: 14px;
+	padding: 2px 2px 2px 2px;
 
 }
 
