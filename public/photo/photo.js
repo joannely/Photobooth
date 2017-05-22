@@ -36,11 +36,11 @@ function createImg() {
 	var ct = document.createElement("div");
 	ct.innerHTML = "change tags";
 	ct.setAttribute("class", "menuItem");
-	ct.setAttribute("onclick", changeTags());
+	//ct.setAttribute("onclick", changeTags());
 	var add = document.createElement("div");
 	add.innerHTML = "add to favorites";
 	add.setAttribute("class", "menuItem");
-	add.setAttribute("onclick", addFavs());
+	//add.setAttribute("onclick", addFavs());
 	var icon = document.createElement("img");
 	icon.setAttribute("src", "../photobooth/optionsTriangle.png");
 	icon.style.width = "50px";
