@@ -27,7 +27,7 @@ function createImg() {
 	var add = document.createElement("div");
 	add.innerHTML = "add to favorites";
 	var icon = document.createElement("img");
-	icon..setAttribute("src", "../photobooth/optionsTriangle.png");
+	icon.setAttribute("src", "../photobooth/optionsTriangle.png");
 
 	menu.appendChild(ct);
 	menu.appendChild(add);
