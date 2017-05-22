@@ -38,16 +38,17 @@ function changeTags(e) {
 			// }
 			labelArea.getElementsByClassName("inputLabel")[0].style.display = "none";
 			labelArea.getElementsByClassName("addLabelButton")[0].style.display = "none";
-			return;
+		} else {
+			labelArea.getElementsByClassName("labelBox")[0].style.backgroundColor = "#C1AB9E";
+			// var labels = labelArea.getElementsByClassName("labelBox")[0].getElementsByClassName("labelItem");
+			// for(int i = 0; i < labels.length; i++) {
+			// 	labels[i].getElementsByClassName("deleteLabel")[0].style.display = block; // BLOCK??
+			// }
+			labelArea.getElementsByClassName("inputLabel")[0].style.display = "block";
+			labelArea.getElementsByClassName("addLabelButton")[0].style.display = "block";
 		}
 
-		labelArea.getElementsByClassName("labelBox")[0].style.backgroundColor = "#C1AB9E";
-		// var labels = labelArea.getElementsByClassName("labelBox")[0].getElementsByClassName("labelItem");
-		// for(int i = 0; i < labels.length; i++) {
-		// 	labels[i].getElementsByClassName("deleteLabel")[0].style.display = block; // BLOCK??
-		// }
-		labelArea.getElementsByClassName("inputLabel")[0].style.display = "block";
-		labelArea.getElementsByClassName("addLabelButton")[0].style.display = "block";
+
 	}
 }
 
