@@ -10,6 +10,17 @@ function showFileName() {
 	fileTitle.innerHTML = name.files.item(0).name;
 }
 
+function expandMenu(this) {
+	this.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
+	this.style.display = "none"
+
+}
+
+function collapseMenu(this) {
+	this.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
+	this.style.display = "none"	
+}
+
 function createImg() {
 	// create parent div
 	var div = document.createElement("div");
@@ -25,14 +36,26 @@ function createImg() {
 	var ct = document.createElement("div");
 	ct.innerHTML = "change tags";
 	ct.setAttribute("class", "menuItem");
+	ct.setAttribute("onclick", changeTags());
 	var add = document.createElement("div");
 	add.innerHTML = "add to favorites";
 	add.setAttribute("class", "menuItem");
+	add.setAttribute("onclick", addFavs());
 	var icon = document.createElement("img");
 	icon.setAttribute("src", "../photobooth/optionsTriangle.png");
 	icon.style.width = "50px";
 	icon.style.height = "auto";
 	icon.style.alignSelf = "flex-end";
+	icon.setAttribute("onclick", collapseMenu(this));
+
+	var menuIcon = document.createElement("img");
+	menuIcon.setAttribute("src", "../photobooth/optionsTriangle.png");
+	menuIcon.setAttribute("class", "menuIcon");
+	menuIcon.style.width = "50px";
+	menuIcon.style.height = "auto";
+	menuIcon.style.alignSelf = "flex-end";
+	menuIcon.setAttribute("onclick", expandMenu(this));
+	menuIcon.style.display = "none";
 
 	menu.appendChild(ct);
 	menu.appendChild(add);
@@ -55,6 +78,7 @@ function createImg() {
 	div.appendChild(container);
 	container.appendChild(image);
 	container.appendChild(menu);
+	container.appendChild(menuIcon);
 	div.appendChild(progressBar);
 	div.appendChild(labelBox);
 
@@ -92,7 +116,7 @@ function uploadFile() {
 	    image.style.opacity = 1;
 	    image.parentElement.parentElement.getElementsByClassName("progressBar")[0].style.display = "none";
 	    image.parentElement.parentElement.getElementsByClassName("labelBox")[0].style.display = "block";
-	    image.parentElement.getElementsByClassName("menu")[0].style.display = "inline-flex";
+	    image.parentElement.getElementsByClassName("menuIcon")[0].style.display = "inline-flex";
 
 	}
 

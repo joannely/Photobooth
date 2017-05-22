@@ -154,7 +154,7 @@ label {
 
 .menu {
 	position: absolute;
-	bottom: 4px;
+	bottom: 5px;
 	right: 0;
 	z-index: 1;
 	display: flex;
@@ -164,6 +164,16 @@ label {
 	border-style: solid;
 	border-color: black;
 	border-width: 1px;
+}
+
+.menuIcon {
+	position: absolute;
+	bottom: 5px;
+	right: 0;
+	z-index: 1;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;	
 }
 
 .menuItem {
