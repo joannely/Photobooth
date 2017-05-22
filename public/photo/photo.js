@@ -11,10 +11,11 @@ function showFileName() {
 }
 
 function expandMenu(e) {
-	if(e.target) {
-		e.target.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
-		e.target.style.display = "none"		
-	}
+	console.log(e.target);
+	// if(e.target) {
+	// 	e.target.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
+	// 	e.target.style.display = "none"		
+	// }
 
 
 }
