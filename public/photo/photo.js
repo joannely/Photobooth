@@ -46,8 +46,8 @@ function createImg() {
 	icon.style.width = "50px";
 	icon.style.height = "auto";
 	icon.style.alignSelf = "flex-end";
-	icon.addEventListener("click", function(this) {
-		//var elm = event.target || event.srcElement;
+	icon.addEventListener("click", function(elm) {
+		var elm = event.target || event.srcElement;
 		this.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
 		this.style.display = "none"	
 
@@ -64,7 +64,7 @@ function createImg() {
 	menuIcon.style.width = "50px";
 	menuIcon.style.height = "auto";
 	menuIcon.style.alignSelf = "flex-end";
-	menuIcon.addEventListener("click", function(this) {
+	menuIcon.addEventListener("click", function(elm) {
 		//var elm = event.target || event.srcElement;
 		this.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
 		this.style.display = "none"	
