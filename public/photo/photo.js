@@ -22,9 +22,24 @@ function expandMenu(e) {
 function collapseMenu(e) {
 	if(e.target) {
 		e.target.parentElement.parentElement.getElementsByClassName("menuIcon")[0].style.display = "inline-flex";
-		e.target.parentElement.style.display = "none"	;
-
+		e.target.parentElement.style.display = "none";
 	}
+}
+
+function changeTags(e) {
+	if(e.target) {
+		var labelArea = e.target.parentElement.parentElement.parentElement.getElementsByClassName("labeArea")[0];
+		labelArea.getElementsByClassName("labelBox")[0].style.backgroundColor = "#C1AB9E";
+		// var labels = labelArea.getElementsByClassName("labelBox")[0].getElementsByClassName("labelItem");
+		// for(int i = 0; i < labels.length; i++) {
+		// 	labels[i].getElementsByClassName("deleteLabel")[0].style.display = block; // BLOCK??
+		// }
+		labelArea.getElementsByClassName("inputLabel")[0].style.display = block;
+		labelArea.getElementsByClassName("addLabelButton")[0].style.display = block;
+	}
+}
+
+function addLabel(e) {
 
 }
 
@@ -43,6 +58,7 @@ function createImg() {
 	var ct = document.createElement("div");
 	ct.innerHTML = "change tags";
 	ct.setAttribute("class", "menuItem");
+	ct.onclick = changeTags;
 	//ct.setAttribute("onclick", changeTags());
 	var add = document.createElement("div");
 	add.innerHTML = "add to favorites";
@@ -79,16 +95,32 @@ function createImg() {
 	var progressBar = document.createElement("div");
 	progressBar.setAttribute("class", "progressBar");
 	// label box
+	var labelArea = document.createElement("div");
+	labelArea.setAttribute("class", "labelArea");
+
 	var labelBox = document.createElement("div");
 	labelBox.setAttribute("class", "labelBox")
-	labelBox.style.display = "none";
+
+	var inputLabel = document.createElement("input");
+	inputLabel.setAttribute("class", "inputLabel");
+	inputLabel.setAttribute("type", "text");
+
+	var addLabelButton = document.createElement("button");
+	addLabelButton.setAttribute("class", "addLabelButton");
+	addLabelButton.innerHTML = "Add";
+	addLabelButton.onclick = addLabel;
+
+	labelArea.appendChild(labelBox);
+	labelArea.appendChild(inputLabel);
+	labelArea.appendChild(addLabelButton);
+	labelArea.style.display = "none";
 
 	div.appendChild(container);
 	container.appendChild(image);
 	container.appendChild(menu);
 	container.appendChild(menuIcon);
 	div.appendChild(progressBar);
-	div.appendChild(labelBox);
+	div.appendChild(labelArea);
 
 	document.getElementById("photos").appendChild(div);
 	return image;
@@ -123,7 +155,10 @@ function uploadFile() {
 	oReq.onreadystatechange = function() { // done uploading
 	    image.style.opacity = 1;
 	    image.parentElement.parentElement.getElementsByClassName("progressBar")[0].style.display = "none";
-	    image.parentElement.parentElement.getElementsByClassName("labelBox")[0].style.display = "block";
+	    image.parentElement.parentElement.getElementsByClassName("labelArea")[0].style.display = "block";
+	    image.parentElement.parentElement.getElementsByClassName("labelArea")[0].getElementsByClassName("inputLabel")[0].style.display = "none";
+	    image.parentElement.parentElement.getElementsByClassName("labelArea")[0].getElementsByClassName("addLabelButton")[0].style.display = "none";
+
 	    image.parentElement.getElementsByClassName("menuIcon")[0].style.display = "inline-flex";
 
 	}

@@ -190,3 +190,20 @@ label {
 	border-color: #885540;
 }
 
+.addLabelButton {
+	background-color: #885540;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+	border-bottom-width: 1px;
+}
+
+.inputLabel {
+	background-color: white;
+	color: black;
+	margin-top: 0;
+	border-bottom-style: solid;
+	border-bottom-color: #885540;
+	border-bottom-width: 1px;
+
+}
+
