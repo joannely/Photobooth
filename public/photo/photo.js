@@ -46,7 +46,7 @@ function createImg() {
 	icon.style.width = "50px";
 	icon.style.height = "auto";
 	icon.style.alignSelf = "flex-end";
-	icon.setAttribute("onclick", collapseMenu(this));
+	icon.setAttribute("onclick", collapseMenu(icon));
 
 	var menuIcon = document.createElement("img");
 	menuIcon.setAttribute("src", "../photobooth/optionsTriangle.png");
@@ -54,7 +54,7 @@ function createImg() {
 	menuIcon.style.width = "50px";
 	menuIcon.style.height = "auto";
 	menuIcon.style.alignSelf = "flex-end";
-	menuIcon.setAttribute("onclick", expandMenu(this));
+	menuIcon.setAttribute("onclick", expandMenu(menuIcon));
 	menuIcon.style.display = "none";
 
 	menu.appendChild(ct);
