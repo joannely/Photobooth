@@ -38,7 +38,7 @@ app.post('/', function (request, response){
     	// put it in /public
     	file.path = __dirname + '/public/' + file.name;
     	console.log("uploading ",file.name,name);
-        db.run('INSERT REPLACE INTO photoLabels VALUES ("'+file.name+'", "", 0) '); // add to db
+        db.run('INSERT OR REPLACE INTO photoLabels VALUES ("'+file.name+'", "", 0) '); // add to db
 
     });
 
