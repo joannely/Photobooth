@@ -10,15 +10,15 @@ function showFileName() {
 	fileTitle.innerHTML = name.files.item(0).name;
 }
 
-function expandMenu(this) {
-	this.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
-	this.style.display = "none"
+function expandMenu(div) {
+	div.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
+	div.style.display = "none"
 
 }
 
-function collapseMenu(this) {
-	this.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
-	this.style.display = "none"	
+function collapseMenu(div) {
+	div.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
+	div.style.display = "none"	
 }
 
 function createImg() {
