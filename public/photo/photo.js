@@ -13,23 +13,42 @@ function showFileName() {
 function createImg() {
 	// create parent div
 	var div = document.createElement("div");
-	div.setAttribute("class", "photo")
+	div.setAttribute("class", "photo");
 
+	// create container for img
+	var container = document.createElement("div");
+	container.setAttribute("class", "photoContainer");
+	// create menu
+	var menu = document.createElement("div");
+	menu.setAttribute("class", "menu");
+
+	var ct = document.createElement("div");
+	ct.innerHTML = "change tags";
+	var add = document.createElement("div");
+	add.innerHTML = "add to favorites";
+	var icon = document.createElement("img");
+	icon..setAttribute("src", "../photobooth/optionsTriangle.png");
+
+	menu.appendChild(ct);
+	menu.appendChild(add);
+	menu.appendChild(icon);
 	// create image 
 	var image = document.createElement("IMG");
 	image.setAttribute("id", "img" + IMG_NO);
 	image.style.width = "200px";
 	image.style.height = "auto";
+	image.style.zIndex = "0";
 	// progress bar
 	var progressBar = document.createElement("div");
 	progressBar.setAttribute("class", "progressBar");
 	// label box
 	var labelBox = document.createElement("div");
 	labelBox.setAttribute("class", "labelBox")
-	labelBox.setAttribute("onClick", "labelBoxClicked()");
 	labelBox.style.display = "none";
 
-	div.appendChild(image);
+	div.appendChild(container);
+	container.appendChild(image);
+	container.appendChild(menu);
 	div.appendChild(progressBar);
 	div.appendChild(labelBox);
 

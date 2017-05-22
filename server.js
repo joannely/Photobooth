@@ -21,9 +21,9 @@ app.get('/query', function (request, response){
     console.log("query");
     query = request.url.split("?")[1]; // get query string
     if (query) {
-	answer(query, response);
+	   answer(query, response);
     } else {
-	sendCode(400,response,'query not recognized');
+	   sendCode(400,response,'query not recognized');
     }
 });
 
@@ -38,7 +38,7 @@ app.post('/', function (request, response){
     	// put it in /public
     	file.path = __dirname + '/public/' + file.name;
     	console.log("uploading ",file.name,name);
-        db.run('INSERT INTO photoLabels VALUES ("'+file.name+'", "", 0) '); // add to db
+        db.run('INSERT REPLACE INTO photoLabels VALUES ("'+file.name+'", "", 0) '); // add to db
 
     });
 
