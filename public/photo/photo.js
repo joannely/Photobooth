@@ -24,12 +24,15 @@ function createImg() {
 
 	var ct = document.createElement("div");
 	ct.innerHTML = "change tags";
+	ct.setAttribute("class", "menuItem");
 	var add = document.createElement("div");
 	add.innerHTML = "add to favorites";
+	add.setAttribute("class", "menuItem");
 	var icon = document.createElement("img");
 	icon.setAttribute("src", "../photobooth/optionsTriangle.png");
 	icon.style.width = "50px";
 	icon.style.height = "auto";
+	icon.style.alignSelf = "flex-end";
 
 	menu.appendChild(ct);
 	menu.appendChild(add);

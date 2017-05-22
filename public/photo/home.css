@@ -133,7 +133,7 @@ label {
 }
 
 .labelBox {
-	width: 200px;
+	width: 250px;
 	background-color: white;
 	height: 20px;
 	border-style: solid;
@@ -161,10 +161,20 @@ label {
 	flex-direction: column;
 	background-color: #885540;
 	color: white;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+}
+
+.menuItem {
+	border-bottom-style: solid;
+	border-bottom-color: black;
+	border-bottom-width: 1px;
+	padding: 2px 2px 2px 2px;
 }
 
 .progressBar {
-	width: 200px;
+	width: 250px;
 	height: 20px;
 	margin-top: 5px;
 	background: linear-gradient(90deg, #885540 70%, #ffffff 30%);
