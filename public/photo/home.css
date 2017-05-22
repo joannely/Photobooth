@@ -197,19 +197,19 @@ label {
 	border-bottom-width: 1px;
 	margin-top: 5px;
 	font-size: 14px;
+	align-items: center;
 }
 
 .inputLabel {
-	border-top-style: none;
-	border-left-style: none;
-	border-right-style: none;
 	width: 250px;
 	background-color: white;
 	color: black;
 	margin-top: 0;
-	border-bottom-style: solid;
-	border-bottom-color: #885540;
-	border-bottom-width: 1px;
+	border-style: solid;
+	border-color: #885540;
+	border-width: 1px;
+	border-top-style: none;
+	font-family: fontGoudy, serif;
 
 }
 
