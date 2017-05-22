@@ -10,16 +10,16 @@ function showFileName() {
 	fileTitle.innerHTML = name.files.item(0).name;
 }
 
-// function expandMenu(div) {
-// 	div.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
-// 	div.style.display = "none"
+function expandMenu() {
+	this.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
+	this.style.display = "none"
 
-// }
+}
 
-// function collapseMenu(div) {
-// 	div.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
-// 	div.style.display = "none"	
-// }
+function collapseMenu() {
+	this.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
+	this.style.display = "none"	
+}
 
 function createImg() {
 	// create parent div
@@ -46,12 +46,14 @@ function createImg() {
 	icon.style.width = "50px";
 	icon.style.height = "auto";
 	icon.style.alignSelf = "flex-end";
-	icon.addEventListener("click", function(elm) {
-		var elm = event.target || event.srcElement;
-		this.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
-		this.style.display = "none"	
+	icon.addEventListener("click", collapseMenu());
 
-	});
+	// icon.addEventListener("click", function(elm) {
+	// 	var elm = event.target || event.srcElement;
+	// 	this.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
+	// 	this.style.display = "none"	
+
+	// });
 	// document.addEventListener("click", function(event){
 	//     var targetElement = event.target || event.srcElement;
 	//     console.log(targetElement);
@@ -64,12 +66,13 @@ function createImg() {
 	menuIcon.style.width = "50px";
 	menuIcon.style.height = "auto";
 	menuIcon.style.alignSelf = "flex-end";
-	menuIcon.addEventListener("click", function(elm) {
-		//var elm = event.target || event.srcElement;
-		this.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
-		this.style.display = "none"	
+	// menuIcon.addEventListener("click", function(elm) {
+	// 	//var elm = event.target || event.srcElement;
+	// 	this.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
+	// 	this.style.display = "none"	
 
-	});
+	// });
+	menuIcon.addEventListener("click", expandMenu());
 	menuIcon.style.display = "none";
 
 	menu.appendChild(ct);
