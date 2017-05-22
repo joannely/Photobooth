@@ -10,16 +10,16 @@ function showFileName() {
 	fileTitle.innerHTML = name.files.item(0).name;
 }
 
-function expandMenu(div) {
-	div.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
-	div.style.display = "none"
+// function expandMenu(div) {
+// 	div.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
+// 	div.style.display = "none"
 
-}
+// }
 
-function collapseMenu(div) {
-	div.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
-	div.style.display = "none"	
-}
+// function collapseMenu(div) {
+// 	div.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
+// 	div.style.display = "none"	
+// }
 
 function createImg() {
 	// create parent div
@@ -46,7 +46,17 @@ function createImg() {
 	icon.style.width = "50px";
 	icon.style.height = "auto";
 	icon.style.alignSelf = "flex-end";
-	icon.setAttribute("onclick", collapseMenu(icon));
+	icon.addEventListener("click", function(event) {
+		var elm = event.target || event.srcElement;
+		elm.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
+		elm.style.display = "none"	
+
+	});
+	// document.addEventListener("click", function(event){
+	//     var targetElement = event.target || event.srcElement;
+	//     console.log(targetElement);
+	// });
+	// icon.setAttribute("onclick", collapseMenu(icon));
 
 	var menuIcon = document.createElement("img");
 	menuIcon.setAttribute("src", "../photobooth/optionsTriangle.png");
@@ -54,7 +64,12 @@ function createImg() {
 	menuIcon.style.width = "50px";
 	menuIcon.style.height = "auto";
 	menuIcon.style.alignSelf = "flex-end";
-	menuIcon.setAttribute("onclick", expandMenu(menuIcon));
+	icon.addEventListener("click", function(event) {
+		var elm = event.target || event.srcElement;
+		elm.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
+		elm.style.display = "none"	
+
+	});
 	menuIcon.style.display = "none";
 
 	menu.appendChild(ct);
