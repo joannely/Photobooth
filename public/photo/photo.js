@@ -12,7 +12,7 @@ function showFileName() {
 
 function expandMenu(e) {
 	if(e.target) {
-		e.target.parentElement.style.display = "inline-flex";
+		e.target.parentElement.getElementsByClassName("menu")[0].style.display = "inline-flex";
 		e.target.style.display = "none";
 	}
 
@@ -22,7 +22,7 @@ function expandMenu(e) {
 function collapseMenu(e) {
 	if(e.target) {
 		e.target.style.display = "none"	;
-		e.target.getElementsByClassName("menuIcon").style.display = "inline-flex";
+		e.target.parentElement.getElementsByClassName("menuIcon")[0].style.display = "inline-flex";
 	}
 
 }
@@ -54,17 +54,6 @@ function createImg() {
 	icon.style.alignSelf = "flex-end";
 	icon.onclick = collapseMenu;
 
-	// icon.addEventListener("click", function(elm) {
-	// 	var elm = event.target || event.srcElement;
-	// 	this.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
-	// 	this.style.display = "none"	
-
-	// });
-	// document.addEventListener("click", function(event){
-	//     var targetElement = event.target || event.srcElement;
-	//     console.log(targetElement);
-	// });
-	// icon.setAttribute("onclick", collapseMenu(icon));
 
 	var menuIcon = document.createElement("img");
 	menuIcon.setAttribute("src", "../photobooth/optionsTriangle.png");
@@ -72,12 +61,6 @@ function createImg() {
 	menuIcon.style.width = "50px";
 	menuIcon.style.height = "auto";
 	menuIcon.style.alignSelf = "flex-end";
-	// menuIcon.addEventListener("click", function(elm) {
-	// 	//var elm = event.target || event.srcElement;
-	// 	this.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
-	// 	this.style.display = "none"	
-
-	// });
 	menuIcon.onclick = expandMenu;
 	menuIcon.style.display = "none";
 
