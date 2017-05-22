@@ -10,15 +10,21 @@ function showFileName() {
 	fileTitle.innerHTML = name.files.item(0).name;
 }
 
-function expandMenu() {
-	this.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
-	this.style.display = "none"
+function expandMenu(e) {
+	if(e.target) {
+		e.target.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
+		e.target.style.display = "none"		
+	}
+
 
 }
 
-function collapseMenu() {
-	this.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
-	this.style.display = "none"	
+function collapseMenu(e) {
+	if(e.target) {
+		e.target.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
+		e.target.style.display = "none"		
+	}
+
 }
 
 function createImg() {
@@ -46,7 +52,7 @@ function createImg() {
 	icon.style.width = "50px";
 	icon.style.height = "auto";
 	icon.style.alignSelf = "flex-end";
-	icon.addEventListener("click", collapseMenu());
+	icon.onclick = collapseMenu;
 
 	// icon.addEventListener("click", function(elm) {
 	// 	var elm = event.target || event.srcElement;
@@ -72,7 +78,7 @@ function createImg() {
 	// 	this.style.display = "none"	
 
 	// });
-	menuIcon.addEventListener("click", expandMenu());
+	menuIcon.onclick = expandMenu;
 	menuIcon.style.display = "none";
 
 	menu.appendChild(ct);
