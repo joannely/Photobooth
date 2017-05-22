@@ -32,6 +32,7 @@ function createImg() {
 	menu.appendChild(ct);
 	menu.appendChild(add);
 	menu.appendChild(icon);
+	menu.style.display = "none";
 	// create image 
 	var image = document.createElement("IMG");
 	image.setAttribute("id", "img" + IMG_NO);
@@ -84,8 +85,9 @@ function uploadFile() {
 
 	oReq.onreadystatechange = function() { // done uploading
 	    image.style.opacity = 1;
-	    image.parentElement.getElementsByClassName("progressBar")[0].style.display = "none";
-	    image.parentElement.getElementsByClassName("labelBox")[0].style.display = "block";
+	    image.parentElement.parentElement.getElementsByClassName("progressBar")[0].style.display = "none";
+	    image.parentElement.parentElement.getElementsByClassName("labelBox")[0].style.display = "block";
+	    image.parentElement.getElementsByClassName("menu")[0].style.display = "inline-flex";
 
 	}
 

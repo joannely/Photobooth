@@ -152,7 +152,7 @@ label {
 
 .menu {
 	position: absolute;
-	bottom: 0;
+	bottom: 4px;
 	right: 0;
 	z-index: 1;
 	display: flex;
