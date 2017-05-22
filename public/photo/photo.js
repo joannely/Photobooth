@@ -28,7 +28,7 @@ function collapseMenu(e) {
 
 function changeTags(e) {
 	if(e.target) {
-		var labelArea = e.target.parentElement.parentElement.parentElement.getElementsByClassName("labeArea")[0];
+		var labelArea = e.target.parentElement.parentElement.parentElement.getElementsByClassName("labelArea")[0];
 		labelArea.getElementsByClassName("labelBox")[0].style.backgroundColor = "#C1AB9E";
 		// var labels = labelArea.getElementsByClassName("labelBox")[0].getElementsByClassName("labelItem");
 		// for(int i = 0; i < labels.length; i++) {
