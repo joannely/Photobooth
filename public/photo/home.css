@@ -195,9 +195,15 @@ label {
 	border-bottom-style: solid;
 	border-bottom-color: black;
 	border-bottom-width: 1px;
+	margin-top: 5px;
+	font-size: 14px;
 }
 
 .inputLabel {
+	border-top-style: none;
+	border-left-style: none;
+	border-right-style: none;
+	width: 250px;
 	background-color: white;
 	color: black;
 	margin-top: 0;
