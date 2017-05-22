@@ -46,10 +46,10 @@ function createImg() {
 	icon.style.width = "50px";
 	icon.style.height = "auto";
 	icon.style.alignSelf = "flex-end";
-	icon.addEventListener("click", function(event) {
-		var elm = event.target || event.srcElement;
-		elm.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
-		elm.style.display = "none"	
+	icon.addEventListener("click", function(this) {
+		//var elm = event.target || event.srcElement;
+		this.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
+		this.style.display = "none"	
 
 	});
 	// document.addEventListener("click", function(event){
@@ -64,10 +64,10 @@ function createImg() {
 	menuIcon.style.width = "50px";
 	menuIcon.style.height = "auto";
 	menuIcon.style.alignSelf = "flex-end";
-	menuIcon.addEventListener("click", function(event) {
-		var elm = event.target || event.srcElement;
-		elm.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
-		elm.style.display = "none"	
+	menuIcon.addEventListener("click", function(this) {
+		//var elm = event.target || event.srcElement;
+		this.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
+		this.style.display = "none"	
 
 	});
 	menuIcon.style.display = "none";
