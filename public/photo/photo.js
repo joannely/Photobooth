@@ -31,7 +31,7 @@ function changeTags(e) {
 		var labelArea = e.target.parentElement.parentElement.parentElement.getElementsByClassName("labelArea")[0];
 
 		if(labelArea.getElementsByClassName("labelBox")[0].style.backgroundColor == "#C1AB9E") {
-			labelArea.getElementsByClassName("labelBox")[0].style.backgroundColor == "white";
+			labelArea.getElementsByClassName("labelBox")[0].style.backgroundColor = "white";
 			// var labels = labelArea.getElementsByClassName("labelBox")[0].getElementsByClassName("labelItem");
 			// for(int i = 0; i < labels.length; i++) {
 			// 	labels[i].getElementsByClassName("deleteLabel")[0].style.display = "none"; // BLOCK??
