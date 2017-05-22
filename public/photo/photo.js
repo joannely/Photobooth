@@ -22,7 +22,7 @@ function expandMenu(e) {
 function collapseMenu(e) {
 	if(e.target) {
 		e.target.parentElement.parentElement.getElementsByClassName("menuIcon")[0].style.display = "inline-flex";
-		e.target.style.display = "none"	;
+		e.target.parentElement.style.display = "none"	;
 
 	}
 
