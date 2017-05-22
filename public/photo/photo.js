@@ -11,19 +11,18 @@ function showFileName() {
 }
 
 function expandMenu(e) {
-	console.log(e.target);
-	// if(e.target) {
-	// 	e.target.parentElement.getElementsByClassName("menu").style.display = "inline-flex";
-	// 	e.target.style.display = "none"		
-	// }
+	if(e.target) {
+		e.target.parentElement.style.display = "inline-flex";
+		e.target.style.display = "none";
+	}
 
 
 }
 
 function collapseMenu(e) {
 	if(e.target) {
-		e.target.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
-		e.target.style.display = "none"		
+		e.target.style.display = "none"	;
+		e.target.getElementsByClassName("menuIcon").style.display = "inline-flex";
 	}
 
 }
