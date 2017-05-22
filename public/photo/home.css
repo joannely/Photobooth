@@ -148,6 +148,8 @@ label {
 
 .photoContainer {
 	position: relative;
+	width: 250px;
+	height: auto;
 }
 
 .menu {

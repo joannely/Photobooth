@@ -28,6 +28,8 @@ function createImg() {
 	add.innerHTML = "add to favorites";
 	var icon = document.createElement("img");
 	icon.setAttribute("src", "../photobooth/optionsTriangle.png");
+	icon.style.width = "50px";
+	icon.style.height = "auto";
 
 	menu.appendChild(ct);
 	menu.appendChild(add);
@@ -36,7 +38,7 @@ function createImg() {
 	// create image 
 	var image = document.createElement("IMG");
 	image.setAttribute("id", "img" + IMG_NO);
-	image.style.width = "200px";
+	image.style.width = "250px";
 	image.style.height = "auto";
 	image.style.zIndex = "0";
 	// progress bar
