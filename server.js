@@ -209,7 +209,23 @@ function answer(query, response) {
     }
     if(queryObj.op == "getFavs") {
         db.all(
-        'SELECT * FROM photoLabels WHERE favorite = 1', getfilter);
+        'SELECT * FROM photoLabels WHERE favorite = 1', getfav);
+
+        function getfav(err,data) {
+            console.log("getting favorites");
+            if (err) {
+                console.log("error: ",err,"\n");
+            } else {
+                // send a nice response back to browser
+                response.status(200);
+                response.type("text/plain");
+                response.send(data);
+            }
+        }
+    }
+    if(queryObj.op == "getAll") {
+        db.all(
+        'SELECT * FROM photoLabels', getfilter);
 
         function getfilter(err,data) {
             console.log("getting favorites");
