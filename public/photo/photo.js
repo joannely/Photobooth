@@ -149,7 +149,6 @@ function enterFilter() {
 	document.getElementById("filterBox").value = "";
 	var url = "http://138.68.25.50:10305/query?keyword="+filter+"&op=filter";
 	function reqListener() {
-		alert(this.responseText);
 		showPhotos(this.responseText);
 	}
 
@@ -193,10 +192,12 @@ function clearFavsFilter() {
 
 
 function showPhotos(data) {
+	console.log("inshowphotos");
 	var photos = document.getElementsByClassName("photo");
 	for(var i = 0; i < photos.length; i++) { // go thru every photo item
 		for(var j = 0; j < data.length; j++) { // match with data
 			if(photos[i].firstChild.firstChild.id == data[i].fileName) {
+				console.log("foundmatch");
 				photos[i].style.display = "none";
 			}
 		}
