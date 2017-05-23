@@ -33,7 +33,7 @@ function changeTags(e) {
 		if(labelArea.getElementsByClassName("inputLabel")[0].style.display == "block") {
 			labelArea.getElementsByClassName("labelBox")[0].style.backgroundColor = "white";
 			var labels = labelArea.firstChild.getElementsByClassName("labelItem");
-			console.log(labels);
+			console.log(labels.length);
 			// if(labels) {
 			// 	for(int i = 0; i < labels.length; i++) {
 			// 		labels[i].getElementsByClassName("deleteLabel")[0].style.display = "none"; // BLOCK??
