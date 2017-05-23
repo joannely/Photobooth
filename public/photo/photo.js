@@ -149,13 +149,8 @@ function enterFilter() {
 	document.getElementById("filterBox").value = "";
 	var url = "http://138.68.25.50:10305/query?keyword="+filter+"&op=filter";
 	function reqListener() {
-		var data = this.responseText;
-		alert(data);
-		alert(data[0]);
-		alert(data[1]);
-		alert(data[2]);
-		var temp = JSON.parse(data);
-		alert(temp.fileName);
+		var temp = JSON.parse(this.responseText);
+		alert(temp[0].fileName);
 		showPhotos(this.responseText);
 	}
 
