@@ -66,7 +66,7 @@ function addLabel(e) {
 			var deleteLabel = document.createElement("img");
 			deleteLabel.setAttribute("class", "deleteLabel");
 			deleteLabel.setAttribute("src", "../photobooth/removeTagButton.png");
-			var labelText = document.createElement("img");
+			var labelText = document.createElement("div");
 			labelText.setAttribute("class", "labelText");
 
 			labelItem.appendChild(deleteLabel);
