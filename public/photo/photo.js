@@ -57,7 +57,7 @@ function addLabel(e) {
 	if(e.target) {
 		var l = e.target.parentElement.getElementsByClassName("inputLabel")[0].value;
 		lString = l.replace(' ', '%');
-		var imgName = e.target.parentElement.parentElement.getElementsByClassName("container")[0].firstChild.id;
+		var imgName = e.target.parentElement.parentElement.getElementsByClassName("photoContainer")[0].firstChild.id;
 		var url = "http://138.68.25.50:"+PORT_NO+"/query?img="+imgName+"&label="+lString+"&op=delete";
 		function reqListener() {
 			var labelBox = inputLabel.parentElement.firstChild;
@@ -196,7 +196,7 @@ function uploadFile() {
 	if(document.getElementById("fileSelector").value == "") {
 		return;
 	}
-	var imgName = document.getElementById("fileSelector").value;
+	var imgName = document.getElementById("fileChose").innerHTML;
 	var image = createImg(imgName);
 
 	document.getElementById('fileChose').innerHTML = "no file chosen";
