@@ -239,7 +239,7 @@ function loadPhotos(data) {
 		img.parentElement.getElementsByClassName("menuIcon")[0].style.display = "inline-flex";
 
 		var labels = data[i].labels.split(' ');
-		for(var i = 0; i < labels.length; i++) {
+		for(var i = 0; i < labels.length-1; i++) {
 			var labelBox = img.parentElement.parentElement.getElementsByClassName("labelArea")[0].firstChild;
 			var labelItem = document.createElement("div");
 			labelItem.setAttribute("class", "labelItem");
