@@ -50,7 +50,7 @@ app.post('/', function (request, response){
 
 });
 
-app.listen(10305);
+app.listen(7686);
 
 // sends off an HTTP response with the given status code and message
 function sendCode(code,response,message) {

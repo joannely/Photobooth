@@ -16,10 +16,27 @@ function createImg() {
 	div.setAttribute("class", "photo")
 
 	// create image 
+	var outer = document.createElement("div");
+	outer.setAttribute("class", "outer");
+
+	
 	var image = document.createElement("IMG");
 	image.setAttribute("id", "img" + IMG_NO);
 	image.style.width = "200px";
 	image.style.height = "auto";
+
+	//showImageOptions
+	var inner =document.createElement("div");
+	inner.setAttribute("class", "inner");
+	var imageOption = document.createElement("img");
+	imageOption.setAttribute("src", "../photobooth/optionsTriangle.png");
+	imageOption.setAttribute("onClick", "showImageOptions()");
+	imageOption.setAttribute("class", "imageOpt");
+
+	var imageOption2 = document.createElement("div");
+	imageOption2.setAttribute("class", "innerOption2");
+
+
 	// progress bar
 	var progressBar = document.createElement("div");
 	progressBar.setAttribute("class", "progressBar");
@@ -30,6 +47,10 @@ function createImg() {
 	labelBox.style.display = "none";
 
 	div.appendChild(image);
+	div.appendChild(outer);
+	div.appendChild(inner);
+	inner.appendChild(imageOption);
+	inner.appendChild(imageOption2);
 	div.appendChild(progressBar);
 	div.appendChild(labelBox);
 
@@ -107,3 +128,13 @@ function showFavoritesOptions() {
 		div.style.display = "block";
 	}
 }
+
+function showImageOptions(){
+	var div = document.getElementsByClassName("inner");
+	if(div.style.display == "block") {
+		div.style.display = "none";
+	} else {
+		div.style.display = "block";
+	}
+}
+
