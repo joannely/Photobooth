@@ -150,9 +150,11 @@ function enterFilter() {
 	var url = "http://138.68.25.50:10305/query?keyword="+filter+"&op=filter";
 	function reqListener() {
 		var data = this.responseText;
+		alert(data);
 		alert(data[0]);
 		alert(data[1]);
-		var temp = JSON.stringify(data);
+		alert(data[2]);
+		var temp = JSON.parse(data);
 		alert(temp.fileName);
 		showPhotos(this.responseText);
 	}
