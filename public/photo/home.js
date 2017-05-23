@@ -247,37 +247,37 @@ function showPhotos(data) {
 function loadPhotos(data) {
 	console.log("loading photos");
 	alert(data.length);
-	// for(var i = 0; i < data.length; i++) {
-	// 	var img = createImg(data[i].fileName);
-	// 	var src = "http://138.68.25.50:"+PORT_NO+"/public/"+data[i].fileName;
-	// 	img.setAttribute("src", src);
-	// 	var labels = data[i].labels.split(' ');
-	// 	for(var i = 0; i < labels.length; i++) {
-	// 		var labelBox = img.parentElement.parentElement.getElementsByClassName("labelArea")[0].firstChild;
-	// 		var labelItem = document.createElement("div");
-	// 		labelItem.setAttribute("class", "labelItem");
-	// 		var deleteLabel = document.createElement("img");
-	// 		deleteLabel.setAttribute("class", "deleteLabel");
-	// 		deleteLabel.setAttribute("src", "../photobooth/removeTagButton.png");
-	// 		deleteLabel.onclick = delLabel;
-	// 		var labelText = document.createElement("div");
-	// 		labelText.setAttribute("class", "labelText");
+	for(var i = 0; i < data.length; i++) {
+		var img = createImg(data[i].fileName);
+		//var src = "http://138.68.25.50:"+PORT_NO+"/public/"+data[i].fileName;
+		//img.setAttribute("src", src);
+		var labels = data[i].labels.split(' ');
+		for(var i = 0; i < labels.length; i++) {
+			var labelBox = img.parentElement.parentElement.getElementsByClassName("labelArea")[0].firstChild;
+			var labelItem = document.createElement("div");
+			labelItem.setAttribute("class", "labelItem");
+			var deleteLabel = document.createElement("img");
+			deleteLabel.setAttribute("class", "deleteLabel");
+			deleteLabel.setAttribute("src", "../photobooth/removeTagButton.png");
+			deleteLabel.onclick = delLabel;
+			var labelText = document.createElement("div");
+			labelText.setAttribute("class", "labelText");
 
-	// 		labelItem.appendChild(deleteLabel);
-	// 		labelItem.appendChild(labelText);
-	// 		labelBox.appendChild(labelItem);
-	// 		labelText.textContent = labels[i];
-	// 		if(labelBox.getElementsByClassName("labelItem").length == 10) {
-	// 			e.target.style.display = "none";
-	// 		}
-	// 	}
-	// 	if(data[i].favorite == 1) {
-	// 		var elm = img.parentElement.getElementsByClassName("menuItem")[1];
-	// 		elm.innerHTML = "unfavorite";
-	// 		elm.onclick = removeFromFavs;
+			labelItem.appendChild(deleteLabel);
+			labelItem.appendChild(labelText);
+			labelBox.appendChild(labelItem);
+			labelText.textContent = labels[i];
+			if(labelBox.getElementsByClassName("labelItem").length == 10) {
+				e.target.style.display = "none";
+			}
+		}
+		if(data[i].favorite == 1) {
+			var elm = img.parentElement.getElementsByClassName("menuItem")[1];
+			elm.innerHTML = "unfavorite";
+			elm.onclick = removeFromFavs;
 
-	// 	}
-	// }
+		}
+	}
 }
 
 
