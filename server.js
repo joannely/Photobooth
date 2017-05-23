@@ -189,13 +189,14 @@ function answer(query, response) {
             }
         }
     }
-    if(queryObj.op == "getFavs") {
+    if(queryObj.op == "filter") {
         var imageFile = queryObj.img;
+        var keyword = queryObj.keyword;
         db.get(
-        'SELECT fileName FROM photoLabels WHERE favorite = 1', getFavs);
+        'SELECT fileName FROM photoLabels WHERE labels LIKE "%?%"', [keyword], getfilter);
 
-        function getFavs(err,data) {
-            console.log("getting filenames favorited");
+        function getfilter(err,data) {
+            console.log("filtering photos");
             if (err) {
                 console.log("error: ",err,"\n");
             } else {
