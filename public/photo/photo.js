@@ -164,9 +164,11 @@ function enterFilter() {
 function filterFavorites() {
 	var div = document.getElementById("favoritesOptions");
 	div.style.display = "block";
-	var url = "http://138.68.25.50:"+PORT_NO+"/query?op=filter";
+	var url = "http://138.68.25.50:"+PORT_NO+"/query?op=getFavs";
 	function reqListener() {
-		showPhotos(this.responseText);
+		var data = JSON.parse(this.responseText);
+		//alert(temp[0].fileName);
+		showPhotos(data);
 	}
 	var oReq = new XMLHttpRequest();
 	oReq.addEventListener("load", reqListener);

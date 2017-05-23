@@ -207,5 +207,20 @@ function answer(query, response) {
             }
         }
     }
+    if(queryObj.op == "getFavs") {
+        db.all(
+        'SELECT * FROM photoLabels WHERE favorite = 1', getfilter);
 
+        function getfilter(err,data) {
+            console.log("getting favorites");
+            if (err) {
+                console.log("error: ",err,"\n");
+            } else {
+                // send a nice response back to browser
+                response.status(200);
+                response.type("text/plain");
+                response.send(data);
+            }
+        }
+    }
 }
