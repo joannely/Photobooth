@@ -192,7 +192,7 @@ function answer(query, response) {
     if(queryObj.op == "filter") {
         var k = queryObj.keyword;
         keyword = "%" + k + "%";
-        db.all(
+        db.get(
         'SELECT fileName FROM photoLabels WHERE labels LIKE ?', [keyword], getfilter);
 
         function getfilter(err,data) {
@@ -204,6 +204,7 @@ function answer(query, response) {
                 response.status(200);
                 response.type("text/plain");
                 response.send(data.fileName);
+                console.log(data);
             }
         }
     }
