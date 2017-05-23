@@ -251,7 +251,7 @@ function loadPhotos(data) {
 		img.setAttribute("src", src);
 		var labels = data[i].labels.split(' ');
 		for(var i = 0; i < labels.length; i++) {
-			var labelBox = img.parentElement.parentElement.getElementsByClassName("labelArea").firstChild;
+			var labelBox = img.parentElement.parentElement.getElementsByClassName("labelArea")[0].firstChild;
 			var labelItem = document.createElement("div");
 			labelItem.setAttribute("class", "labelItem");
 			var deleteLabel = document.createElement("img");
