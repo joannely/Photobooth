@@ -1,4 +1,4 @@
-var IMG_NO = 0
+var PORT_NO = "10305"
 
 function enterPhotobooth() {
 	document.location.href = 'home.html';
@@ -33,18 +33,18 @@ function changeTags(e) {
 		if(labelArea.getElementsByClassName("inputLabel")[0].style.display == "block") {
 			console.log("inif");
 			labelArea.getElementsByClassName("labelBox")[0].style.backgroundColor = "white";
-			// var labels = labelArea.getElementsByClassName("labelBox")[0].getElementsByClassName("labelItem");
-			// for(int i = 0; i < labels.length; i++) {
-			// 	labels[i].getElementsByClassName("deleteLabel")[0].style.display = "none"; // BLOCK??
-			// }
+			var labels = labelArea.getElementsByClassName("labelBox")[0].getElementsByClassName("labelItem");
+			for(int i = 0; i < labels.length; i++) {
+				labels[i].getElementsByClassName("deleteLabel")[0].style.display = "none"; // BLOCK??
+			}
 			labelArea.getElementsByClassName("inputLabel")[0].style.display = "none";
 			labelArea.getElementsByClassName("addLabelButton")[0].style.display = "none";
 		} else {
 			labelArea.getElementsByClassName("labelBox")[0].style.backgroundColor = "#C1AB9E";
-			// var labels = labelArea.getElementsByClassName("labelBox")[0].getElementsByClassName("labelItem");
-			// for(int i = 0; i < labels.length; i++) {
-			// 	labels[i].getElementsByClassName("deleteLabel")[0].style.display = block; // BLOCK??
-			// }
+			var labels = labelArea.getElementsByClassName("labelBox")[0].getElementsByClassName("labelItem");
+			for(int i = 0; i < labels.length; i++) {
+				labels[i].getElementsByClassName("deleteLabel")[0].style.display = block; // BLOCK??
+			}
 			labelArea.getElementsByClassName("inputLabel")[0].style.display = "block";
 			labelArea.getElementsByClassName("addLabelButton")[0].style.display = "block";
 		}
@@ -53,11 +53,62 @@ function changeTags(e) {
 	}
 }
 
+
 function addLabel(e) {
+	if(e.target) {
+		var l = e.target.parentElement.getElementsByClassName("inputLabel")[0].value;
+		lString = l.replace(' ', '%');
+		var imgName = e.target.parentElement.parentElement.getElementsByClassName("container")[0].firstChild.id;
+		var url = "http://138.68.25.50:"+PORT_NO+"/query?img="+imgName+"&label="+lString+"&op=delete";
+		function reqListener() {
+			var labelBox = inputLabel.parentElement.firstChild;
+			var labelItem = document.createElement("div");
+			labelItem.setAttribute("class", "labelItem");
+			var deleteLabel = document.createElement("div");
+			deleteLabel.setAttribute("class", "deleteLabel");
+			var labelText = document.createElement("img");
+			labelText.setAttribute("class", "labelText");
+			labelText.setAttribute("src", "../photobooth/removeTagButton.png");
+
+			labelItem.appendChild(deleteLabel);
+			labelItem.appendChild(labelText);
+			labelBox.appendChild(labelItem);
+			labelText.textContent = l;			
+		}
+		var oReq = new XMLHttpRequest();
+		oReq.addEventListener("load", reqListener);
+		oReq.open("GET", url);
+		oReq.send();
+	}
 
 }
 
-function createImg() {
+
+
+/* called when image is clicked */
+function getLabels(imgName) {
+        // construct url for query
+	var url = "http://138.68.25.50:60401/query?img="+imgName;
+
+        // becomes method of request object oReq
+	function reqListener () {
+  	    var pgh = document.getElementById("labels");
+	    pgh.textContent = this.responseText;
+	}
+
+	var oReq = new XMLHttpRequest();
+	oReq.addEventListener("load", reqListener);
+	oReq.open("GET", url);
+	oReq.send();
+}
+
+
+
+
+
+
+
+function createImg(imgName) {
 	// create parent div
 	var div = document.createElement("div");
 	div.setAttribute("class", "photo");
@@ -101,7 +152,7 @@ function createImg() {
 	menu.style.display = "none";
 	// create image 
 	var image = document.createElement("IMG");
-	image.setAttribute("id", "img" + IMG_NO);
+	image.setAttribute("id", imgName);
 	image.style.width = "250px";
 	image.style.height = "auto";
 	image.style.zIndex = "0";
@@ -146,9 +197,8 @@ function uploadFile() {
 	if(document.getElementById("fileSelector").value == "") {
 		return;
 	}
-
-	var image = createImg();
-	IMG_NO++;
+	var imgName = document.getElementById("fileSelector").value;
+	var image = createImg(imgName);
 
 	document.getElementById('fileChose').innerHTML = "no file chosen";
 

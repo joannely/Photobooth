@@ -57,23 +57,92 @@ function sendCode(code,response,message) {
     response.status(code);
     response.send(message);
 }
-    
-// Stuff for dummy query answering
-// We'll replace this with a real database someday! 
-function answer(query, response) {
-var labels = {hula:
-"Dance, Performing Arts, Sports, Entertainment, QuinceaÃ±era, Event, Hula, Folk Dance",
-	      eagle: "Bird, Beak, Bird Of Prey, Eagle, Vertebrate, Bald Eagle, Fauna, Accipitriformes, Wing",
-	      redwoods: "Habitat, Vegetation, Natural Environment, Woodland, Tree, Forest, Green, Ecosystem, Rainforest, Old Growth Forest"};
 
-    console.log("answering");
-    kvpair = query.split("=");
-    labelStr = labels[kvpair[1]];
-    if (labelStr) {
-	    response.status(200);
-	    response.type("text/json");
-	    response.send(labelStr);
-    } else {
-	    sendCode(400,response,"requested photo not found");
+var querystring = require('querystring'); // handy for parsing query strings
+
+
+function answer(query, response) {
+    // query looks like: img=xx.jpg&label=ice%cream&op=delete
+    queryObj = querystring.parse(query);
+    if (queryObj.op == "add") {
+        var newLabel = queryObj.label;
+        var imageFile = queryObj.img;
+        if (newLabel && imageFile) {
+            // good add query
+            // go to database! 
+            db.get(
+            'SELECT labels FROM photoLabels WHERE fileName = ?',
+            [imageFile], getCallback);
+
+            // define callback inside queries so it knows about imageFile
+            // because closure!
+            function getCallback(err,data) {
+                console.log("getting labels from "+imageFile);
+                if (err) {
+                    console.log("error: ",err,"\n");
+                } else {
+                    // good response...so let's update labels
+                    db.run(
+                    'UPDATE photoLabels SET labels = ? WHERE fileName = ?',
+                    [data.labels+newLabel+" ", imageFile],
+                    updateCallback);
+                }
+            }
+
+            // Also define this inside queries so it knows about
+            // response object
+            function updateCallback(err) {
+                console.log("updating labels for "+imageFile+"\n");
+                if (err) {
+                    console.log(err+"\n");
+                    sendCode(400,response,"requested photo not found");         
+                } else {
+                    // send a nice response back to browser
+                    response.status(200);
+                    response.type("text/plain");
+                    response.send("added label "+newLabel+" to "+imageFile);
+                }
+            }
+
+        }
+    }
+    if(queryObj.op == "delete") {
+        var labelToDelete = queryObj.label;
+        var imageFile = queryObj.img;
+        if (labelToDelete && imageFile) {
+            db.get(
+            'SELECT labels FROM photoLabels WHERE fileName = ?',
+            [imageFile], getCallback);
+
+            function getCallback(err,data) {
+                console.log("getting labels from "+imageFile);
+                if (err) {
+                    console.log("error: ",err,"\n");
+                } else {
+                    var replacement = data.labels.replace(labelToDelete+' ', '');
+                    // good response...so let's update labels
+                    db.run(
+                    'UPDATE photoLabels SET labels = ? WHERE fileName = ?',
+                    [replacement, imageFile],
+                    updateCallback);
+                }
+            }
+
+            // Also define this inside queries so it knows about
+            // response object
+            function updateCallback(err) {
+                console.log("deleting labels for "+imageFile+"\n");
+                if (err) {
+                    console.log(err+"\n");
+                    sendCode(400,response,"requested photo not found");         
+                } else {
+                    // send a nice response back to browser
+                    response.status(200);
+                    response.type("text/plain");
+                    response.send("deleted label "+labelToDelete+" from "+imageFile);
+                }
+            }
+
+        }
     }
 }
