@@ -146,7 +146,6 @@ function removeFromFavs(e) {
 
 function enterFilter() {
 	var filter = document.getElementById("filterBox").value;
-	document.getElementById("filterBox").value = "";
 	var url = "http://138.68.25.50:10305/query?keyword="+filter+"&op=filter";
 	function reqListener() {
 		var data = JSON.parse(this.responseText);
@@ -179,6 +178,7 @@ function filterFavorites() {
 
 
 function clearFilter() {
+	document.getElementById("filterBox").value = "";
 	var photos = document.getElementsByClassName("photo");
 	for(var i = 0; i < photos.length; i++) {
 		photos[i].style.display = "block";
@@ -186,7 +186,10 @@ function clearFilter() {
 }
 
 function clearFavsFilter() {
-	clearFilter();
+	var photos = document.getElementsByClassName("photo");
+	for(var i = 0; i < photos.length; i++) {
+		photos[i].style.display = "block";
+	}
 	var div = document.getElementById("favoritesOptions");
 	div.style.display = "none";
 }
@@ -196,13 +199,13 @@ function clearFavsFilter() {
 function showPhotos(data) {
 	console.log("inshowphotos");
 	var photos = document.getElementsByClassName("photo");
+	for(var i = 0; i < photos.length; i++) {
+		photos[i].style.display = "none";
+	}
 	for(var i = 0; i < photos.length; i++) { // go thru every photo item
 		for(var j = 0; j < data.length; j++) { // match with data
-			console.log(photos[i].firstChild.firstChild.id);
-			console.log(data[i].fileName);
 			if(photos[i].firstChild.firstChild.id == data[i].fileName) {
-				console.log("foundmatch");
-				photos[i].style.display = "none";
+				photos[i].style.display = "block";
 			}
 		}
 
