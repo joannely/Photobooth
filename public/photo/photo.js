@@ -35,7 +35,7 @@ function changeTags(e) {
 			var labels = labelArea.firstChild.getElementsByClassName("labelItem");
 			console.log(labels.length);
 			for(int i = 0; i < labels.length; i++) {
-				labels[i].getElementsByClassName("deleteLabel")[0].style.display = "none"; // BLOCK??
+				//labels[i].getElementsByClassName("deleteLabel")[0].style.display = "none"; // BLOCK??
 			}				
 			
 			labelArea.getElementsByClassName("inputLabel")[0].style.display = "none";
