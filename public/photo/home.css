@@ -155,13 +155,12 @@ label {
 }
 
 .labelText {
-
+	margin-right: 10px;
 }
 
 .deleteLabel {
 	width: 15px;
 	height: auto;
-	margin-left: 10px;
 	margin-right: 5px;
 }
 
