@@ -227,12 +227,17 @@ function showPhotos(data) {
 
 
 function loadPhotos(data) {
-	console.log("loading photos");
-	alert(data.length);
 	for(var i = 0; i < data.length; i++) {
 		var img = createImg(data[i].fileName);
 		var src = "http://138.68.25.50:"+PORT_NO+"/"+data[i].fileName;
 		img.setAttribute("src", src);
+		img.parentElement.parentElement.getElementsByClassName("progressBar")[0].style.display = "none";
+		var labelArea = img.parentElement.parentElement.getElementsByClassName("labelArea")[0];
+		labelArea.style.display = "block";
+		labelArea.getElementsByClassName("inputLabel").style.display = "none";
+		labelArea.getElementsByClassName("addLabelButton").style.display = "none";
+		img.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
+
 		// var labels = data[i].labels.split(' ');
 		// for(var i = 0; i < labels.length; i++) {
 		// 	var labelBox = img.parentElement.parentElement.getElementsByClassName("labelArea")[0].firstChild;
