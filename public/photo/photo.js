@@ -60,7 +60,7 @@ function changeTags(e) {
 function delLabel(e) {
 	if(e.target) {
 		var l = e.target.parentElement.getElementsByClassName("labelText")[0].textContent;
-		lString = l.replace(' ', '%');
+		lString = l.split(' ').join('%'); 
 		var imgName = e.target.parentElement.parentElement.parentElement.parentElement.getElementsByClassName("photoContainer")[0].firstChild.id;
 		var url = "http://138.68.25.50:"+PORT_NO+"/query?img="+imgName+"&label="+lString+"&op=delete";
 		function reqListener() {
@@ -68,7 +68,7 @@ function delLabel(e) {
 			var labelArea = e.target.parentElement.parentElement.parentElement;
 			elm.parentNode.removeChild(elm);
 			if(labelArea.getElementsByClassName("addLabelButton")[0].style.display == "none") {
-				labelArea.getElementsByClassName("addLabelButton")[0].style.display == "block";
+				labelArea.getElementsByClassName("addLabelButton")[0].style.display = "block";
 			}
 		}
 		var oReq = new XMLHttpRequest();
@@ -82,7 +82,7 @@ function delLabel(e) {
 function addLabel(e) {
 	if(e.target) {
 		var l = e.target.parentElement.getElementsByClassName("inputLabel")[0].value;
-		lString = l.replace(' ', '%');
+		lString = l.split(' ').join('%'); 
 		var imgName = e.target.parentElement.parentElement.getElementsByClassName("photoContainer")[0].firstChild.id;
 		var url = "http://138.68.25.50:"+PORT_NO+"/query?img="+imgName+"&label="+lString+"&op=add";
 		function reqListener() {
@@ -114,7 +114,35 @@ function addLabel(e) {
 
 }
 
+function addToFavs(e) {
+	if(e.target) {
+		var imgName = e.target.parentElement.parentElement.firstChild.id;
+		var url = "http://138.68.25.50:"+PORT_NO+"/query?img="+imgName+"&op=addToFavs";
+		function reqListener() {
+			e.target.innerHTML = "unfavorite";
+			e.target.onclick = removeFromFavs;
+		}
+		var oReq = new XMLHttpRequest();
+		oReq.addEventListener("load", reqListener);
+		oReq.open("GET", url);
+		oReq.send();
+	}
+}
 
+function removeFromFavs(e) {
+	if(e.target) {
+		var imgName = e.target.parentElement.parentElement.firstChild.id;
+		var url = "http://138.68.25.50:"+PORT_NO+"/query?img="+imgName+"&op=deleteFromFavs";
+		function reqListener() {
+			e.target.innerHTML = "add to favorites";
+			e.target.onclick = addToFavs;
+		}
+		var oReq = new XMLHttpRequest();
+		oReq.addEventListener("load", reqListener);
+		oReq.open("GET", url);
+		oReq.send();
+	}
+}
 
 /* called when image is clicked */
 function getLabels(imgName) {
@@ -132,8 +160,6 @@ function getLabels(imgName) {
 	oReq.open("GET", url);
 	oReq.send();
 }
-
-
 
 
 
@@ -159,6 +185,7 @@ function createImg(imgName) {
 	var add = document.createElement("div");
 	add.innerHTML = "add to favorites";
 	add.setAttribute("class", "menuItem");
+	add.onclick = addToFavs;
 	//add.setAttribute("onclick", addFavs());
 	var icon = document.createElement("img");
 	icon.setAttribute("src", "../photobooth/optionsTriangle.png");

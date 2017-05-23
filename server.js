@@ -147,4 +147,47 @@ function answer(query, response) {
 
         }
     }
+    if(queryObj.op == "addToFavs") {
+        var imageFile = queryObj.img;
+        if(imageFile) {
+            db.run(
+            'UPDATE photoLabels SET favorite = 1 WHERE fileName = ?',
+            [imageFile], getCallbackFav);
+
+        }
+        function updateCallback(err) {
+            console.log("updating fav "+imageFile+"\n");
+            if (err) {
+                console.log(err+"\n");
+                sendCode(400,response,"requested photo not found");         
+            } else {
+                // send a nice response back to browser
+                response.status(200);
+                response.type("text/plain");
+                response.send("favorited "+imageFile);
+            }
+        }
+    }
+    if(queryObj.op == "deleteFromFavs") {
+        var imageFile = queryObj.img;
+        if(imageFile) {
+            db.run(
+            'UPDATE photoLabels SET favorite = 0 WHERE fileName = ?',
+            [imageFile], getCallbackFav);
+
+        }
+        function updateCallback(err) {
+            console.log("updating fav "+imageFile+"\n");
+            if (err) {
+                console.log(err+"\n");
+                sendCode(400,response,"requested photo not found");         
+            } else {
+                // send a nice response back to browser
+                response.status(200);
+                response.type("text/plain");
+                response.send("unfavorited "+imageFile);
+            }
+        }
+    }
+
 }
