@@ -190,7 +190,6 @@ function answer(query, response) {
         }
     }
     if(queryObj.op == "filter") {
-        var imageFile = queryObj.img;
         var keyword = queryObj.keyword;
         db.get(
         'SELECT fileName FROM photoLabels WHERE labels LIKE "%?%"', [keyword], getfilter);

@@ -147,7 +147,7 @@ function removeFromFavs(e) {
 function enterFilter() {
 	var filter = document.getElementById("filterBox").value;
 	document.getElementById("filterBox").value = "";
-	var url = "http://138.68.25.50:10305/query?img="+imgName+"&keyword="+filter+"&op=filter";
+	var url = "http://138.68.25.50:10305/query?keyword="+filter+"&op=filter";
 	function reqListener() {
 		alert(this.responseText);
 	}
