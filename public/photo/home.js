@@ -239,7 +239,7 @@ function loadPhotos(data) {
 		img.parentElement.getElementsByClassName("menuIcon")[0].style.display = "inline-flex";
 
 		var labels = data[i].labels.split(' ');
-		for(var i = 0; i < labels.length-1; i++) {
+		for(var j = 0; j < labels.length-1; j++) {
 			var labelBox = img.parentElement.parentElement.getElementsByClassName("labelArea")[0].firstChild;
 			var labelItem = document.createElement("div");
 			labelItem.setAttribute("class", "labelItem");
@@ -253,7 +253,7 @@ function loadPhotos(data) {
 			labelItem.appendChild(deleteLabel);
 			labelItem.appendChild(labelText);
 			labelBox.appendChild(labelItem);
-			labelText.textContent = labels[i];
+			labelText.textContent = labels[j];
 			if(labelBox.getElementsByClassName("labelItem").length == 10) {
 				e.target.style.display = "none";
 			}
