@@ -149,7 +149,9 @@ function enterFilter() {
 	document.getElementById("filterBox").value = "";
 	var url = "http://138.68.25.50:10305/query?keyword="+filter+"&op=filter";
 	function reqListener() {
-		alert(this.responseText[0].fileName);
+		var data = this.responseText;
+		alert(data[0].'fileName');
+		alert(data[0].fileName);
 		showPhotos(this.responseText);
 	}
 
