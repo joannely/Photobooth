@@ -65,6 +65,7 @@ function answer(query, response) {
     // query looks like: img=xx.jpg&label=ice%cream&op=delete
     queryObj = querystring.parse(query);
     if (queryObj.op == "add") {
+        console.log("add");
         var newLabel = queryObj.label;
         var imageFile = queryObj.img;
         if (newLabel && imageFile) {
@@ -107,6 +108,7 @@ function answer(query, response) {
         }
     }
     if(queryObj.op == "delete") {
+        console.log("delete");
         var labelToDelete = queryObj.label;
         var imageFile = queryObj.img;
         if (labelToDelete && imageFile) {

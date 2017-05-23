@@ -63,11 +63,11 @@ function addLabel(e) {
 			var labelBox = e.target.parentElement.firstChild;
 			var labelItem = document.createElement("div");
 			labelItem.setAttribute("class", "labelItem");
-			var deleteLabel = document.createElement("div");
+			var deleteLabel = document.createElement("img");
 			deleteLabel.setAttribute("class", "deleteLabel");
+			deleteLabel.setAttribute("src", "../photobooth/removeTagButton.png");
 			var labelText = document.createElement("img");
 			labelText.setAttribute("class", "labelText");
-			labelText.setAttribute("src", "../photobooth/removeTagButton.png");
 
 			labelItem.appendChild(deleteLabel);
 			labelItem.appendChild(labelText);
