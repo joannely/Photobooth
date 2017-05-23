@@ -239,26 +239,25 @@ function loadPhotos(data) {
 		img.parentElement.getElementsByClassName("menuIcon")[0].style.display = "inline-flex";
 
 		var labels = data[i].labels.split(' ');
-		alert(data[i].labels);
-		// for(var i = 0; i < labels.length; i++) {
-		// 	var labelBox = img.parentElement.parentElement.getElementsByClassName("labelArea")[0].firstChild;
-		// 	var labelItem = document.createElement("div");
-		// 	labelItem.setAttribute("class", "labelItem");
-		// 	var deleteLabel = document.createElement("img");
-		// 	deleteLabel.setAttribute("class", "deleteLabel");
-		// 	deleteLabel.setAttribute("src", "../photobooth/removeTagButton.png");
-		// 	deleteLabel.onclick = delLabel;
-		// 	var labelText = document.createElement("div");
-		// 	labelText.setAttribute("class", "labelText");
+		for(var i = 0; i < labels.length; i++) {
+			var labelBox = img.parentElement.parentElement.getElementsByClassName("labelArea")[0].firstChild;
+			var labelItem = document.createElement("div");
+			labelItem.setAttribute("class", "labelItem");
+			var deleteLabel = document.createElement("img");
+			deleteLabel.setAttribute("class", "deleteLabel");
+			deleteLabel.setAttribute("src", "../photobooth/removeTagButton.png");
+			deleteLabel.onclick = delLabel;
+			var labelText = document.createElement("div");
+			labelText.setAttribute("class", "labelText");
 
-		// 	labelItem.appendChild(deleteLabel);
-		// 	labelItem.appendChild(labelText);
-		// 	labelBox.appendChild(labelItem);
-		// 	labelText.textContent = labels[i];
-		// 	if(labelBox.getElementsByClassName("labelItem").length == 10) {
-		// 		e.target.style.display = "none";
-		// 	}
-		// }
+			labelItem.appendChild(deleteLabel);
+			labelItem.appendChild(labelText);
+			labelBox.appendChild(labelItem);
+			labelText.textContent = labels[i];
+			if(labelBox.getElementsByClassName("labelItem").length == 10) {
+				e.target.style.display = "none";
+			}
+		}
 		if(data[i].favorite == 1) {
 			var elm = img.parentElement.getElementsByClassName("menuItem")[1];
 			elm.innerHTML = "unfavorite";
