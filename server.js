@@ -225,9 +225,9 @@ function answer(query, response) {
     }
     if(queryObj.op == "getAll") {
         db.all(
-        'SELECT * FROM photoLabels', getfilter);
+        'SELECT * FROM photoLabels', getAll);
 
-        function getfilter(err,data) {
+        function getAll(err,data) {
             console.log("getting all photos");
             if (err) {
                 console.log("error: ",err,"\n");

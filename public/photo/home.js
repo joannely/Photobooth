@@ -1,6 +1,6 @@
 var PORT_NO = "10305";
 
-loadPage();
+//loadPage();
 
 function showFileName() {
 	var name = document.getElementById('fileSelector'); 
