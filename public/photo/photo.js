@@ -144,6 +144,21 @@ function removeFromFavs(e) {
 	}
 }
 
+function enterFilter() {
+	var filter = document.getElementById("filterBox").value;
+	var url = "http://138.68.25.50:10305/query?img="+imgName+"op=getFavs";
+	function reqListener() {
+		alert(this.responseText);
+	}
+
+	var oReq = new XMLHttpRequest();
+	oReq.addEventListener("load", reqListener);
+	oReq.open("GET", url);
+	oReq.send();
+
+
+}
+
 /* called when image is clicked */
 function getLabels(imgName) {
         // construct url for query
@@ -292,7 +307,9 @@ function uploadFile() {
 		image.style.opacity = 0.5;
 	}
 	fr.readAsDataURL(selectedFile);
+}
 
+function enterFilter() {
 
 }
 

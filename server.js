@@ -155,7 +155,7 @@ function answer(query, response) {
             [imageFile], getCallbackFav);
 
         }
-        function updateCallback(err) {
+        function getCallbackFav(err) {
             console.log("updating fav "+imageFile+"\n");
             if (err) {
                 console.log(err+"\n");
@@ -173,10 +173,10 @@ function answer(query, response) {
         if(imageFile) {
             db.run(
             'UPDATE photoLabels SET favorite = 0 WHERE fileName = ?',
-            [imageFile], getCallbackFav);
+            [imageFile], getCallbackUnFav);
 
         }
-        function updateCallback(err) {
+        function getCallbackUnFav(err) {
             console.log("updating fav "+imageFile+"\n");
             if (err) {
                 console.log(err+"\n");
@@ -186,6 +186,24 @@ function answer(query, response) {
                 response.status(200);
                 response.type("text/plain");
                 response.send("unfavorited "+imageFile);
+            }
+        }
+    }
+    if(queryObj.op == "getFavs") {
+        var imageFile = queryObj.img;
+        db.get(
+        'SELECT fileName FROM photoLabels WHERE favorite = 1',
+        , getFavs);
+
+        function getFavs(err,data) {
+            console.log("getting filenames favorited");
+            if (err) {
+                console.log("error: ",err,"\n");
+            } else {
+                // send a nice response back to browser
+                response.status(200);
+                response.type("text/plain");
+                response.send(data.fileName);
             }
         }
     }
