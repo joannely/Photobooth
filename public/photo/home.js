@@ -231,7 +231,7 @@ function loadPhotos(data) {
 	alert(data.length);
 	for(var i = 0; i < data.length; i++) {
 		var img = createImg(data[i].fileName);
-		var src = "http://138.68.25.50:"+PORT_NO+"/public/"+data[i].fileName;
+		var src = "http://138.68.25.50:"+PORT_NO+"/"+data[i].fileName;
 		img.setAttribute("src", src);
 		// var labels = data[i].labels.split(' ');
 		// for(var i = 0; i < labels.length; i++) {
