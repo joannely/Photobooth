@@ -1,6 +1,6 @@
 var PORT_NO = "10305"
 
-load();
+loadPage();
 
 function showFileName() {
 	var name = document.getElementById('fileSelector'); 
@@ -175,7 +175,7 @@ function filterFavorites() {
 	
 }
 
-function load() {
+function loadPage() {
 	var url = "http://138.68.25.50:"+PORT_NO+"/query?op=getAll";
 	function reqListener() {
 		var data = JSON.parse(this.responseText);

@@ -228,7 +228,7 @@ function answer(query, response) {
         'SELECT * FROM photoLabels', getfilter);
 
         function getfilter(err,data) {
-            console.log("getting favorites");
+            console.log("getting all photos");
             if (err) {
                 console.log("error: ",err,"\n");
             } else {
