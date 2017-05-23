@@ -234,9 +234,9 @@ function loadPhotos(data) {
 		img.parentElement.parentElement.getElementsByClassName("progressBar")[0].style.display = "none";
 		var labelArea = img.parentElement.parentElement.getElementsByClassName("labelArea")[0];
 		labelArea.style.display = "block";
-		labelArea.getElementsByClassName("inputLabel").style.display = "none";
-		labelArea.getElementsByClassName("addLabelButton").style.display = "none";
-		img.parentElement.getElementsByClassName("menuIcon").style.display = "inline-flex";
+		labelArea.getElementsByClassName("inputLabel")[0].style.display = "none";
+		labelArea.getElementsByClassName("addLabelButton")[0].style.display = "none";
+		img.parentElement.getElementsByClassName("menuIcon")[0].style.display = "inline-flex";
 
 		// var labels = data[i].labels.split(' ');
 		// for(var i = 0; i < labels.length; i++) {
