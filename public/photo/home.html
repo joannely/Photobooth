@@ -13,6 +13,35 @@
 	<div id="photos">
 
 	</div>
+	<div id="uploadOptions2" class="toolItemOptions2">
+			<label for="fileSelector">choose file..</label>
+			<input type="file" name="photo" id="fileSelector" onchange="showFileName()" />
+ 			<p id="fileChose">no file chosen</p>
+			<button onClick="uploadFile()">upload</button>
+	</div>
+
+	<div id="filterOptions2" class="toolItemOptions2">
+			<input id="filterBox" type="text" size="20" placeholder="filter">
+			<button onClick="enterFilter()">enter</button>
+			<button onClick="clearFilter()">clear filter</button>
+	</div>
+	<div id="favoritesOptions2" class="toolItemOptions2">
+			<button onClick="clearFavsFilter2()">clear filter</button>
+	</div>
+
+	<div id="toolbar2">
+		<div class="toolItem" onClick="showUploadOptions2()">
+			<div class="toolIcon"><img id="uploadIcon" src="../photobooth/uploadIcon-01.png" /></div>
+		</div>
+		<div class="toolItem" onClick="showFilterOptions2()">
+			<div class="toolIcon"><img src="../photobooth/filterIcon-01.png" /></div>
+		</div>
+		<div class="toolItem" onClick="filterFavorites2()">
+			<div class="toolIcon"><img src="../photobooth/favoritesIcon.png" /></div>
+		</div>
+
+	</div>
+
 	<div id="toolbar">
 		<div class="toolItem" onClick="showUploadOptions()">
 			<div class="toolIcon"><img id="uploadIcon" src="../photobooth/uploadIcon-01.png" /></div>upload
@@ -31,7 +60,7 @@
 			<button onClick="enterFilter()">enter</button>
 			<button onClick="clearFilter()">clear filter</button>
 		</div>
-		<div class="toolItem" onClick="showFavoritesOptions()">
+		<div class="toolItem" onClick="filterFavorites()">
 			<div class="toolIcon"><img src="../photobooth/favoritesIcon.png" /></div>favorites
 		</div>
 		<div id="favoritesOptions" class="toolItemOptions">
@@ -39,7 +68,11 @@
 		</div>
 
 	</div>
+
+<div id="photos2">
 </div>
-<script src="photo.js"></script>
+
+</div>
+<script src="home.js"></script>
 </body>
 </html>
