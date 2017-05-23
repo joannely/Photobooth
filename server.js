@@ -190,9 +190,10 @@ function answer(query, response) {
         }
     }
     if(queryObj.op == "filter") {
-        var keyword = queryObj.keyword;
+        var k = queryObj.keyword;
+        keyword = "\"%" + k + "%\"";
         db.get(
-        'SELECT fileName FROM photoLabels WHERE labels LIKE "%?%"', [keyword], getfilter);
+        'SELECT fileName FROM photoLabels WHERE labels LIKE ?', [keyword], getfilter);
 
         function getfilter(err,data) {
             console.log("filtering photos");
