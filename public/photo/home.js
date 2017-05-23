@@ -1,4 +1,4 @@
-var PORT_NO = "10305"
+var PORT_NO = "10305";
 
 loadPage();
 
