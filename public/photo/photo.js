@@ -46,9 +46,11 @@ function changeTags(e) {
 				labels[i].getElementsByClassName("deleteLabel")[0].style.display = "block"; // BLOCK??
 			}
 			labelArea.getElementsByClassName("inputLabel")[0].style.display = "block";
-			//if(!labelArea.firstChild.getElementsByClassName("labelItem").length == 10) {
-			labelArea.getElementsByClassName("addLabelButton")[0].style.display = "block";
-			//}
+			if(labelArea.firstChild.getElementsByClassName("labelItem").length == 10) {
+				labelArea.getElementsByClassName("addLabelButton")[0].style.display = "none";
+			} else {
+				labelArea.getElementsByClassName("addLabelButton")[0].style.display = "block";
+			}
 		}
 
 
