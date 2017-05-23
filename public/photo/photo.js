@@ -61,10 +61,10 @@ function delLabel(e) {
 		var url = "http://138.68.25.50:"+PORT_NO+"/query?img="+imgName+"&label="+lString+"&op=delete";
 		function reqListener() {
 			var elm = e.target.parentElement;
-			var labelBox = e.target.parentElement.parentElement;
+			var labelArea = e.target.parentElement.parentElement.parentElement;
 			elm.parentNode.removeChild(elm);
-			if(labelBox.getElementsByClassName("addLabelButton").style.display == "none") {
-				labelBox.getElementsByClassName("addLabelButton").style.display == "block";
+			if(labelArea.parentgetElementsByClassName("addLabelButton").style.display == "none") {
+				labelArea.getElementsByClassName("addLabelButton").style.display == "block";
 			}
 		}
 		var oReq = new XMLHttpRequest();
