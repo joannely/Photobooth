@@ -192,8 +192,7 @@ function answer(query, response) {
     if(queryObj.op == "getFavs") {
         var imageFile = queryObj.img;
         db.get(
-        'SELECT fileName FROM photoLabels WHERE favorite = 1',
-        , getFavs);
+        'SELECT fileName FROM photoLabels WHERE favorite = 1', getFavs);
 
         function getFavs(err,data) {
             console.log("getting filenames favorited");
