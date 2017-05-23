@@ -196,6 +196,8 @@ function showPhotos(data) {
 	var photos = document.getElementsByClassName("photo");
 	for(var i = 0; i < photos.length; i++) { // go thru every photo item
 		for(var j = 0; j < data.length; j++) { // match with data
+			console.log(photos[i].firstChild.firstChild.id);
+			console.log(data[i].fileName);
 			if(photos[i].firstChild.firstChild.id == data[i].fileName) {
 				console.log("foundmatch");
 				photos[i].style.display = "none";
