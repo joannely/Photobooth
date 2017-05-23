@@ -34,21 +34,21 @@ function changeTags(e) {
 			labelArea.getElementsByClassName("labelBox")[0].style.backgroundColor = "white";
 			var labels = labelArea.firstChild.getElementsByClassName("labelItem");
 			console.log(labels);
-			if(labels) {
-				for(int i = 0; i < labels.length; i++) {
-					labels[i].getElementsByClassName("deleteLabel")[0].style.display = "none"; // BLOCK??
-				}				
-			}
+			// if(labels) {
+			// 	for(int i = 0; i < labels.length; i++) {
+			// 		labels[i].getElementsByClassName("deleteLabel")[0].style.display = "none"; // BLOCK??
+			// 	}				
+			// }
 			labelArea.getElementsByClassName("inputLabel")[0].style.display = "none";
 			labelArea.getElementsByClassName("addLabelButton")[0].style.display = "none";
 		} else {
 			labelArea.getElementsByClassName("labelBox")[0].style.backgroundColor = "#C1AB9E";
 			var labels = labelArea.firstChild.getElementsByClassName("labelItem");
-			if(labels) {
-				for(int i = 0; i < labels.length; i++) {
-					labels[i].getElementsByClassName("deleteLabel")[0].style.display = "block"; // BLOCK??
-				}
-			}
+			// if(labels) {
+			// 	for(int i = 0; i < labels.length; i++) {
+			// 		labels[i].getElementsByClassName("deleteLabel")[0].style.display = "block"; // BLOCK??
+			// 	}
+			// }
 			labelArea.getElementsByClassName("inputLabel")[0].style.display = "block";
 			labelArea.getElementsByClassName("addLabelButton")[0].style.display = "block";
 		}
