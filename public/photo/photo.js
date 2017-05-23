@@ -151,7 +151,8 @@ function enterFilter() {
 	function reqListener() {
 		var data = this.responseText;
 		alert(data);
-		alert(data[0].fileName);
+		var temp = JSON.parse(data[0]);
+		alert(temp.fileName);
 		showPhotos(this.responseText);
 	}
 
