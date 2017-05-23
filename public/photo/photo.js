@@ -310,9 +310,6 @@ function uploadFile() {
 	fr.readAsDataURL(selectedFile);
 }
 
-function enterFilter() {
-
-}
 
 function showUploadOptions() {
 	var div = document.getElementById("uploadOptions");
