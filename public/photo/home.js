@@ -239,7 +239,7 @@ function loadPhotos(data) {
 		img.parentElement.getElementsByClassName("menuIcon")[0].style.display = "inline-flex";
 
 		var labels = data[i].labels.split(' ');
-		alert(labels);
+		alert(data[i].labels);
 		// for(var i = 0; i < labels.length; i++) {
 		// 	var labelBox = img.parentElement.parentElement.getElementsByClassName("labelArea")[0].firstChild;
 		// 	var labelItem = document.createElement("div");
