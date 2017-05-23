@@ -247,6 +247,7 @@ function loadPhotos(data) {
 			deleteLabel.setAttribute("class", "deleteLabel");
 			deleteLabel.setAttribute("src", "../photobooth/removeTagButton.png");
 			deleteLabel.onclick = delLabel;
+			deleteLabel.style.display = "none";
 			var labelText = document.createElement("div");
 			labelText.setAttribute("class", "labelText");
 
