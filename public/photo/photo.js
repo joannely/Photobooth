@@ -67,7 +67,7 @@ function delLabel(e) {
 			var elm = e.target.parentElement;
 			var labelArea = e.target.parentElement.parentElement.parentElement;
 			elm.parentNode.removeChild(elm);
-			if(labelArea.parentgetElementsByClassName("addLabelButton").style.display == "none") {
+			if(labelArea.getElementsByClassName("addLabelButton").style.display == "none") {
 				labelArea.getElementsByClassName("addLabelButton").style.display == "block";
 			}
 		}
