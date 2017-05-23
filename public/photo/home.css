@@ -161,6 +161,8 @@ label {
 .deleteLabel {
 	width: 15px;
 	height: auto;
+	margin-left: 5px;
+	margin-right: 10px;
 }
 
 .photo {

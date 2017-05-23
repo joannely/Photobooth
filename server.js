@@ -67,6 +67,7 @@ function answer(query, response) {
     if (queryObj.op == "add") {
         console.log("add");
         var newLabel = queryObj.label;
+        newLabel = newLabel.replace('%', ' ');
         var imageFile = queryObj.img;
         if (newLabel && imageFile) {
             // good add query
@@ -110,6 +111,7 @@ function answer(query, response) {
     if(queryObj.op == "delete") {
         console.log("delete");
         var labelToDelete = queryObj.label;
+        labelToDelete = labelToDelete.replace('%', ' ');
         var imageFile = queryObj.img;
         if (labelToDelete && imageFile) {
             db.get(
