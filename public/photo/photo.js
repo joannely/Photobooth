@@ -60,6 +60,7 @@ function addLabel(e) {
 		var imgName = e.target.parentElement.parentElement.getElementsByClassName("photoContainer")[0].firstChild.id;
 		var url = "http://138.68.25.50:"+PORT_NO+"/query?img="+imgName+"&label="+lString+"&op=add";
 		function reqListener() {
+			e.target.parentElement.getElementsByClassName("inputLabel")[0].value = "";
 			var labelBox = e.target.parentElement.firstChild;
 			var labelItem = document.createElement("div");
 			labelItem.setAttribute("class", "labelItem");
@@ -72,7 +73,11 @@ function addLabel(e) {
 			labelItem.appendChild(deleteLabel);
 			labelItem.appendChild(labelText);
 			labelBox.appendChild(labelItem);
-			labelText.textContent = l;			
+			labelText.textContent = l;
+
+			if(labelBox.getElementsByClassName("labelItem").length == 10) {
+				e.target.style.display = "none";
+			}			
 		}
 		var oReq = new XMLHttpRequest();
 		oReq.addEventListener("load", reqListener);

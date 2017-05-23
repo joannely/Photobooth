@@ -133,7 +133,7 @@ label {
 }
 
 .labelBox {
-	width: 250px;
+	width: 240px;
 	min-height: 20px;
 	background-color: white;
 	border-style: solid;
@@ -152,6 +152,10 @@ label {
 	flex-direction: row;
 	flex-wrap: wrap;
 	align-items: flex-start;	
+}
+
+.labelText {
+
 }
 
 .deleteLabel {
