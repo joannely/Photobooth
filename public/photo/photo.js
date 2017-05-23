@@ -58,7 +58,7 @@ function addLabel(e) {
 		var l = e.target.parentElement.getElementsByClassName("inputLabel")[0].value;
 		lString = l.replace(' ', '%');
 		var imgName = e.target.parentElement.parentElement.getElementsByClassName("photoContainer")[0].firstChild.id;
-		var url = "http://138.68.25.50:"+PORT_NO+"/query?img="+imgName+"&label="+lString+"&op=delete";
+		var url = "http://138.68.25.50:"+PORT_NO+"/query?img="+imgName+"&label="+lString+"&op=add";
 		function reqListener() {
 			var labelBox = e.target.parentElement.firstChild;
 			var labelItem = document.createElement("div");
