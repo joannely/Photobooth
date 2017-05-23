@@ -34,11 +34,10 @@ function changeTags(e) {
 			labelArea.getElementsByClassName("labelBox")[0].style.backgroundColor = "white";
 			var labels = labelArea.firstChild.getElementsByClassName("labelItem");
 			console.log(labels.length);
-			// if(labels) {
-			// 	for(int i = 0; i < labels.length; i++) {
-			// 		labels[i].getElementsByClassName("deleteLabel")[0].style.display = "none"; // BLOCK??
-			// 	}				
-			// }
+			for(int i = 0; i < labels.length; i++) {
+				labels[i].getElementsByClassName("deleteLabel")[0].style.display = "none"; // BLOCK??
+			}				
+			
 			labelArea.getElementsByClassName("inputLabel")[0].style.display = "none";
 			labelArea.getElementsByClassName("addLabelButton")[0].style.display = "none";
 		} else {
