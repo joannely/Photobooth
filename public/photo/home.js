@@ -238,7 +238,8 @@ function loadPhotos(data) {
 		labelArea.getElementsByClassName("addLabelButton")[0].style.display = "none";
 		img.parentElement.getElementsByClassName("menuIcon")[0].style.display = "inline-flex";
 
-		// var labels = data[i].labels.split(' ');
+		var labels = data[i].labels.split(' ');
+		alert(labels);
 		// for(var i = 0; i < labels.length; i++) {
 		// 	var labelBox = img.parentElement.parentElement.getElementsByClassName("labelArea")[0].firstChild;
 		// 	var labelItem = document.createElement("div");
