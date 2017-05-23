@@ -149,7 +149,7 @@ function enterFilter() {
 	document.getElementById("filterBox").value = "";
 	var url = "http://138.68.25.50:10305/query?keyword="+filter+"&op=filter";
 	function reqListener() {
-		alert(this.responseText);
+		showPhotos(this.responseText);
 	}
 
 	var oReq = new XMLHttpRequest();
@@ -160,22 +160,65 @@ function enterFilter() {
 
 }
 
-/* called when image is clicked */
-function getLabels(imgName) {
-        // construct url for query
-	var url = "http://138.68.25.50:60401/query?img="+imgName;
-
-        // becomes method of request object oReq
-	function reqListener () {
-  	    var pgh = document.getElementById("labels");
-	    pgh.textContent = this.responseText;
+function filterFavorites() {
+	var div = document.getElementById("favoritesOptions");
+	div.style.display = "block";
+	var url = "http://138.68.25.50:"+PORT_NO+"/query?op=filter";
+	function reqListener() {
+		showPhotos(this.responseText);
 	}
-
 	var oReq = new XMLHttpRequest();
 	oReq.addEventListener("load", reqListener);
 	oReq.open("GET", url);
 	oReq.send();
+	
 }
+
+
+
+function clearFilter() {
+	var photos = document.getElementsByClassName("photo");
+	for(var i = 0; i < photos.length; i++) {
+		photos[i].style.display = "block";
+	}
+}
+
+function clearFavsFilter() {
+	clearFilter();
+	var div = document.getElementById("favoritesOptions");
+	div.style.display = "none";
+}
+
+
+
+function showPhotos(data) {
+	var photos = document.getElementsByClassName("photo");
+	for(var i = 0; i < photos.length; i++) { // go thru every photo item
+		for(var j = 0; j < data.length; j++) { // match with data
+			if(photos[i].firstChild.firstChild.id == data[i].fileName) {
+				photos[i].style.display = "none";
+			}
+		}
+
+	}
+}
+
+// /* called when image is clicked */
+// function getLabels(imgName) {
+//         // construct url for query
+// 	var url = "http://138.68.25.50:60401/query?img="+imgName;
+
+//         // becomes method of request object oReq
+// 	function reqListener () {
+//   	    var pgh = document.getElementById("labels");
+// 	    pgh.textContent = this.responseText;
+// 	}
+
+// 	var oReq = new XMLHttpRequest();
+// 	oReq.addEventListener("load", reqListener);
+// 	oReq.open("GET", url);
+// 	oReq.send();
+// }
 
 
 
@@ -322,15 +365,6 @@ function showUploadOptions() {
 
 function showFilterOptions() {
 	var div = document.getElementById("filterOptions");
-	if(div.style.display == "block") {
-		div.style.display = "none";
-	} else {
-		div.style.display = "block";
-	}
-}
-
-function showFavoritesOptions() {
-	var div = document.getElementById("favoritesOptions");
 	if(div.style.display == "block") {
 		div.style.display = "none";
 	} else {

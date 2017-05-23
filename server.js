@@ -203,8 +203,7 @@ function answer(query, response) {
                 // send a nice response back to browser
                 response.status(200);
                 response.type("text/plain");
-                response.send(data.fileName);
-                console.log(data);
+                response.send(data);
             }
         }
     }
