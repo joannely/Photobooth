@@ -204,8 +204,7 @@ function showPhotos(data) {
 	}
 	for(var i = 0; i < photos.length; i++) { // go thru every photo item
 		for(var j = 0; j < data.length; j++) { // match with data
-			console.log("file name at " + i + " " + data[i].fileName);
-			if(photos[i].firstChild.firstChild.id == data[i].fileName) {
+			if(photos[i].firstChild.firstChild.id == data[j].fileName) {
 				photos[i].style.display = "block";
 			}
 		}
