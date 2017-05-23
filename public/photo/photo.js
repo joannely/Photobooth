@@ -60,7 +60,7 @@ function addLabel(e) {
 		var imgName = e.target.parentElement.parentElement.getElementsByClassName("photoContainer")[0].firstChild.id;
 		var url = "http://138.68.25.50:"+PORT_NO+"/query?img="+imgName+"&label="+lString+"&op=delete";
 		function reqListener() {
-			var labelBox = inputLabel.parentElement.firstChild;
+			var labelBox = e.target.parentElement.firstChild;
 			var labelItem = document.createElement("div");
 			labelItem.setAttribute("class", "labelItem");
 			var deleteLabel = document.createElement("div");
