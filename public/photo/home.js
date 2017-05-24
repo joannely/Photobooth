@@ -13,8 +13,6 @@ function expandMenu(e) {
 		e.target.parentElement.getElementsByClassName("menu")[0].style.display = "inline-flex";
 		e.target.style.display = "none";
 	}
-
-
 }
 
 function collapseMenu(e) {
@@ -50,8 +48,6 @@ function changeTags(e) {
 				labelArea.getElementsByClassName("addLabelButton")[0].style.display = "block";
 			}
 		}
-
-
 	}
 }
 
@@ -188,8 +184,6 @@ function loadPage() {
 	
 }
 
-
-
 function clearFilter() {
 	document.getElementById("filterBox").value = "";
 	var photos = document.getElementsByClassName("photo");
@@ -207,8 +201,6 @@ function clearFavsFilter() {
 	div.style.display = "none";
 }
 
-
-
 function showPhotos(data) {
 	console.log("inshowphotos");
 	var photos = document.getElementsByClassName("photo");
@@ -224,7 +216,6 @@ function showPhotos(data) {
 
 	}
 }
-
 
 function loadPhotos(data) {
 	for(var i = 0; i < data.length; i++) {
@@ -263,7 +254,6 @@ function loadPhotos(data) {
 			var elm = img.parentElement.getElementsByClassName("menuItem")[1];
 			elm.innerHTML = "unfavorite";
 			elm.onclick = removeFromFavs;
-
 		}
 	}
 }
@@ -285,19 +275,16 @@ function createImg(imgName) {
 	ct.innerHTML = "change tags";
 	ct.setAttribute("class", "menuItem");
 	ct.onclick = changeTags;
-	//ct.setAttribute("onclick", changeTags());
 	var add = document.createElement("div");
 	add.innerHTML = "add to favorites";
 	add.setAttribute("class", "menuItem");
 	add.onclick = addToFavs;
-	//add.setAttribute("onclick", addFavs());
 	var icon = document.createElement("img");
 	icon.setAttribute("src", "../photobooth/optionsTriangle.png");
 	icon.style.width = "50px";
 	icon.style.height = "auto";
 	icon.style.alignSelf = "flex-end";
 	icon.onclick = collapseMenu;
-
 
 	var menuIcon = document.createElement("img");
 	menuIcon.setAttribute("src", "../photobooth/optionsTriangle.png");
@@ -315,8 +302,8 @@ function createImg(imgName) {
 	// create image 
 	var image = document.createElement("IMG");
 	image.setAttribute("id", imgName);
-	image.style.width = "250px";
-	image.style.height = "auto";
+	image.style.width = "300px";
+	image.style.height = "400px";
 	image.style.zIndex = "0";
 	// progress bar
 	var progressBar = document.createElement("div");
@@ -386,10 +373,7 @@ function uploadFile() {
 	    image.parentElement.parentElement.getElementsByClassName("labelArea")[0].getElementsByClassName("addLabelButton")[0].style.display = "none";
 
 	    image.parentElement.getElementsByClassName("menuIcon")[0].style.display = "inline-flex";
-
 	}
-
-	//document.getElementById("photos").appendChild(image);
 	var fr = new FileReader();
 	fr.onload = function() {
 		image.setAttribute("src", fr.result);
@@ -397,7 +381,6 @@ function uploadFile() {
 	}
 	fr.readAsDataURL(selectedFile);
 }
-
 
 function showUploadOptions() {
 	var div = document.getElementById("uploadOptions");
@@ -414,5 +397,63 @@ function showFilterOptions() {
 		div.style.display = "none";
 	} else {
 		div.style.display = "block";
+	}
+}
+
+var mq = window.matchMedia( "(max-width: 480px)" );
+mq.addListener(handleMediaChange);
+handleMediaChange(mq);
+
+function handleMediaChange(mediaQueryList) {
+	if(mediaQueryList.matches) {
+		var main = document.getElementById("main");
+		// move tool item options to below toolbar
+		var uploadOptions = document.getElementById("uploadOptions");
+		var filterOptions = document.getElementById("filterOptions");
+		var favoritesOptions = document.getElementById("favoritesOptions");
+		uploadOptions.parentElement.removeChild(uploadOptions);
+		main.appendChild(uploadOptions);
+		filterOptions.parentElement.removeChild(filterOptions);
+		main.appendChild(filterOptions);
+		favoritesOptions.parentElement.removeChild(favoritesOptions);
+		main.appendChild(favoritesOptions);
+
+		// move photos section to end of page
+		photos = document.getElementById("photos");
+		photos.parentElement.removeChild(photos);
+		main.appendChild(photos);
+	} else {
+		var main = document.getElementById("main");
+		// move tool item options to below toolbar
+		var uploadItem = document.getElementsByClassName("toolItem")[0];
+		var filterItem = document.getElementsByClassName("toolItem")[1];
+		var favItem = document.getElementsByClassName("toolItem")[2];
+		var toolbar = document.getElementById("toolbar");
+		var uploadOptions = document.getElementById("uploadOptions");
+		var filterOptions = document.getElementById("filterOptions");
+		var favoritesOptions = document.getElementById("favoritesOptions");
+		uploadItem.parentElement.removeChild(uploadItem);
+		filterItem.parentElement.removeChild(filterItem);
+		favItem.parentElement.removeChild(favItem);
+		uploadOptions.parentElement.removeChild(uploadOptions);
+		filterOptions.parentElement.removeChild(filterOptions);
+		favoritesOptions.parentElement.removeChild(favoritesOptions);
+		toolbar.appendChild(uploadItem);
+		toolbar.appendChild(uploadOptions);
+		toolbar.appendChild(filterItem);
+		toolbar.appendChild(filterOptions);
+		toolbar.appendChild(favItem);
+		toolbar.appendChild(favoritesOptions);
+		// for(var i = 0; i < 3; i++) {
+		// 	items[i].parentElement.removeChild(items[i]);
+		// }
+		// for(var i = 0; i < 3; i++) {
+		// 	options[i].parentElement.removeChild(options[i]);
+		// 	toolbar.appendChild(items[i]);
+		// 	toolbar.appendChild(options[i]);
+		// }
+		// move toolbar section to right of page
+		toolbar.parentElement.removeChild(toolbar);
+		main.appendChild(toolbar);
 	}
 }

@@ -89,7 +89,7 @@ body {
 
 .toolItemOptions {
 	background-color: #CFBBB2;
-	padding: 15px 0px 15px 15px;
+	padding: 15px 15px 15px 15px;
 	color: #885540;
 	display: none;
 }
@@ -238,3 +238,63 @@ label {
 
 }
 
+@media(max-width: 480px){
+
+	#title {
+		display: flex;
+		align-self: center;
+		justify-content: center;
+		border-bottom: none;
+	}
+	
+	#main {
+		display: flex;
+		flex-direction: column;
+	}	
+
+	#photos {
+		width: 100%;
+	}
+
+	#toolbar{
+		width: 100%;
+		background-color: white;
+		display: flex;
+		flex-direction: row;
+		height: 50px;
+		justify-content: center;
+		margin-top: 5px;
+		margin-bottom: 10px;
+	}
+
+	.toolIconText {
+		display: none;
+	}
+
+	.toolItemOptions {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+
+	#uploadIcon {
+		width: 60px;
+	}
+
+
+
+/*	.toolItem{
+		display: flex;
+		justify-content: center;
+	}
+
+	.toolItemOptions2 {
+		background-color: #CFBBB2;
+		padding: 15px 0px 15px 15px;
+		color: #885540;
+		margin-bottom: 5px;
+		display: none;
+	}
+
+*/
+
+}
