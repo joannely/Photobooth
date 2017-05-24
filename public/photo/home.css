@@ -52,6 +52,7 @@ body {
 
 #toolbar {
 	width: 20%;
+	height: 100%;
 	background-color: #885540;
 	color: white;
 }
@@ -279,22 +280,5 @@ label {
 	#uploadIcon {
 		width: 60px;
 	}
-
-
-
-/*	.toolItem{
-		display: flex;
-		justify-content: center;
-	}
-
-	.toolItemOptions2 {
-		background-color: #CFBBB2;
-		padding: 15px 0px 15px 15px;
-		color: #885540;
-		margin-bottom: 5px;
-		display: none;
-	}
-
-*/
 
 }

@@ -143,7 +143,6 @@ function enterFilter() {
 	var url = "http://138.68.25.50:"+PORT_NO+"/query?keyword="+filter+"&op=filter";
 	function reqListener() {
 		var data = JSON.parse(this.responseText);
-		//alert(temp[0].fileName);
 		showPhotos(data);
 	}
 
@@ -161,7 +160,6 @@ function filterFavorites() {
 	var url = "http://138.68.25.50:"+PORT_NO+"/query?op=getFavs";
 	function reqListener() {
 		var data = JSON.parse(this.responseText);
-		//alert(temp[0].fileName);
 		showPhotos(data);
 	}
 	var oReq = new XMLHttpRequest();
