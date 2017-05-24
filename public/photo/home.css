@@ -261,10 +261,12 @@ label {
 		width: 100%;
 		background-color: white;
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		justify-content: center;
+		align-items: center;
 		margin-top: 5px;
 		margin-bottom: 20px;
+		padding: 0;
 	}
 
 	.toolIconText {
