@@ -52,7 +52,7 @@ body {
 
 #toolbar {
 	width: 20%;
-	height: 100%;
+	height: 100px;
 	background-color: #885540;
 	color: white;
 }
@@ -225,7 +225,7 @@ label {
 }
 
 .inputLabel {
-	width: 246px;
+	width: 296px;
 	background-color: white;
 	color: black;
 	margin-top: 0;
