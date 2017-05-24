@@ -255,18 +255,20 @@ label {
 
 	#photos {
 		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
 
 	#toolbar{
 		width: 100%;
 		background-color: white;
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		justify-content: center;
-		align-items: center;
 		margin-top: 5px;
 		margin-bottom: 20px;
-		padding: 0;
 	}
 
 	.toolIconText {
