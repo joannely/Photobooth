@@ -133,7 +133,7 @@ label {
 }
 
 .labelBox {
-	width: 240px;
+	width: 290px;
 	min-height: 20px;
 	background-color: white;
 	border-style: solid;
@@ -171,7 +171,7 @@ label {
 
 .photoContainer {
 	position: relative;
-	width: 250px;
+	width: 300px;
 	height: auto;
 }
 
@@ -204,7 +204,7 @@ label {
 }
 
 .progressBar {
-	width: 250px;
+	width: 300px;
 	height: 20px;
 	margin-top: 5px;
 	background: linear-gradient(90deg, #885540 70%, #ffffff 30%);
