@@ -258,6 +258,10 @@ label {
 		padding: 0;
 	}
 
+	.photo {
+		align-self: flex-start;
+	}
+
 	#toolbar{
 		width: 100%;
 		background-color: white;
