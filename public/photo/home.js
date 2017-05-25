@@ -188,28 +188,42 @@ function clearFilter() {
 	for(var i = 0; i < photos.length; i++) {
 		photos[i].style.display = "block";
 	}
+	if(document.getElementById("favoritesOptions").style.display != "none") {
+		filterFavorites();
+	}
 }
 
 function clearFavsFilter() {
 	var photos = document.getElementsByClassName("photo");
+	var filter = document.getElementById("filterBox").value;
 	for(var i = 0; i < photos.length; i++) {
 		photos[i].style.display = "block";
 	}
 	var div = document.getElementById("favoritesOptions");
 	div.style.display = "none";
+	if(filter != "") {
+		enterFilter();
+	}
 }
 
 function showPhotos(data) {
 	console.log("inshowphotos");
 	var photos = document.getElementsByClassName("photo");
-	for(var i = 0; i < photos.length; i++) {
-		photos[i].style.display = "none";
-	}
 	for(var i = 0; i < photos.length; i++) { // go thru every photo item
+		var found = 0;
 		for(var j = 0; j < data.length; j++) { // match with data
 			if(photos[i].firstChild.firstChild.id == data[j].fileName) {
-				photos[i].style.display = "block";
+				found = 1;
+				break;
 			}
+			// if(photos[i].firstChild.firstChild.id == data[j].fileName && photos[i].style.display != "none") {
+			// 	photos[i].style.display = "block";
+			// }
+		}
+		if(found == 1 && photos[i].style.display != "none") {
+			photos[i].style.display = "block";
+		} else {
+			photos[i].style.display = "none";
 		}
 
 	}
