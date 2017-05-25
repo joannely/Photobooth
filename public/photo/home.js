@@ -156,7 +156,7 @@ function enterFilter() {
 
 function filterFavorites() {
 	var div = document.getElementById("favoritesOptions");
-	div.style.display = "block";
+	div.style.display = "inline-flex";
 	var url = "http://138.68.25.50:"+PORT_NO+"/query?op=getFavs";
 	function reqListener() {
 		var data = JSON.parse(this.responseText);
