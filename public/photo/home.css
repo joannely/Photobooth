@@ -255,6 +255,7 @@ label {
 
 	#photos {
 		width: 100%;
+		padding: 0;
 	}
 
 	#toolbar{
@@ -262,7 +263,6 @@ label {
 		background-color: white;
 		display: flex;
 		flex-direction: row;
-		height: 10%;
 		justify-content: center;
 		margin-top: 5px;
 		margin-bottom: 10px;
