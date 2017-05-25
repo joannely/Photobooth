@@ -268,7 +268,7 @@ label {
 		background-color: white;
 		display: flex;
 		flex-direction: row;
-		align-items: center;
+		justify-content: center;
 		margin-top: 5px;
 		margin-bottom: 10px;
 	}
