@@ -244,10 +244,11 @@ function loadPhotos(data) {
 			labelItem.appendChild(labelText);
 			labelBox.appendChild(labelItem);
 			labelText.textContent = labels[j].split("%").join(" ");
-			if(labelBox.getElementsByClassName("labelItem").length == 10) {
-				e.target.style.display = "none";
-			}
 		}
+		if(labelArea.getElementsByClassName("addLabelButton")[0].length == 10) {
+			labelArea.getElementsByClassName("addLabelButton")[0].style.display = "none";
+		}
+
 		if(data[i].favorite == 1) {
 			var elm = img.parentElement.getElementsByClassName("menuItem")[1];
 			elm.innerHTML = "unfavorite";
