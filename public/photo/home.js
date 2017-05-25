@@ -243,7 +243,7 @@ function loadPhotos(data) {
 			labelItem.appendChild(deleteLabel);
 			labelItem.appendChild(labelText);
 			labelBox.appendChild(labelItem);
-			labelText.textContent = labels[j];
+			labelText.textContent = labels[j].split('%').replace(' ');
 			if(labelBox.getElementsByClassName("labelItem").length == 10) {
 				e.target.style.display = "none";
 			}
