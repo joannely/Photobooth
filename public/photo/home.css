@@ -261,6 +261,8 @@ label {
 	#toolbar{
 		width: 100%;
 		background-color: white;
+		display: flex;
+		flex-direction: row;
 		height: 150px;
 		justify-content: center;
 		margin-top: 5px;
