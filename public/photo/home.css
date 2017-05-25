@@ -246,6 +246,7 @@ label {
 		align-self: center;
 		justify-content: center;
 		border-bottom: none;
+		margin-bottom: 15px;
 	}
 	
 	#main {
@@ -260,8 +261,6 @@ label {
 	#toolbar{
 		width: 100%;
 		background-color: white;
-		display: flex;
-		flex-direction: row;
 		height: 150px;
 		justify-content: center;
 		margin-top: 5px;
