@@ -262,6 +262,7 @@ label {
 		background-color: white;
 		display: flex;
 		flex-direction: row;
+		height: 100px;
 		justify-content: center;
 		margin-top: 5px;
 		margin-bottom: 20px;
