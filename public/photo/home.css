@@ -266,8 +266,10 @@ label {
 		width: 100%;
 		background-color: white;
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
+		flex-wrap: nowrap;
 		justify-content: center;
+		align-items: center;
 		margin-top: 5px;
 		margin-bottom: 10px;
 	}
