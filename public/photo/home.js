@@ -156,7 +156,7 @@ function enterFilter() {
 
 function filterFavorites() {
 	var div = document.getElementById("favoritesOptions");
-	div.style.display = "inline-flex";
+	div.style.display = "block";
 	var url = "http://138.68.25.50:"+PORT_NO+"/query?op=getFavs";
 	function reqListener() {
 		var data = JSON.parse(this.responseText);
@@ -208,7 +208,7 @@ function showPhotos(data) {
 	for(var i = 0; i < photos.length; i++) { // go thru every photo item
 		for(var j = 0; j < data.length; j++) { // match with data
 			if(photos[i].firstChild.firstChild.id == data[j].fileName) {
-				photos[i].style.display = "inline-flex";
+				photos[i].style.display = "block";
 			}
 		}
 
