@@ -208,7 +208,7 @@ function showPhotos(data) {
 	for(var i = 0; i < photos.length; i++) { // go thru every photo item
 		for(var j = 0; j < data.length; j++) { // match with data
 			if(photos[i].firstChild.firstChild.id == data[j].fileName) {
-				photos[i].style.display = "block";
+				photos[i].style.display = "inline-flex";
 			}
 		}
 
