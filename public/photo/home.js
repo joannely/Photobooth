@@ -208,7 +208,7 @@ function showPhotos(data) {
 	for(var i = 0; i < photos.length; i++) { // go thru every photo item
 		for(var j = 0; j < data.length; j++) { // match with data
 			if(photos[i].firstChild.firstChild.id == data[j].fileName) {
-				photos[i].style.display = "inline-flex";
+				photos[i].style.display = "block";
 			}
 		}
 
@@ -405,16 +405,17 @@ handleMediaChange(mq);
 function handleMediaChange(mediaQueryList) {
 	if(mediaQueryList.matches) {
 		var main = document.getElementById("main");
+		var mobileOptionsArea = document.getElementById("mobileOptionsArea");
 		// move tool item options to below toolbar
 		var uploadOptions = document.getElementById("uploadOptions");
 		var filterOptions = document.getElementById("filterOptions");
 		var favoritesOptions = document.getElementById("favoritesOptions");
 		uploadOptions.parentElement.removeChild(uploadOptions);
-		main.appendChild(uploadOptions);
+		mobileOptionsArea.appendChild(uploadOptions);
 		filterOptions.parentElement.removeChild(filterOptions);
-		main.appendChild(filterOptions);
+		mobileOptionsArea.appendChild(filterOptions);
 		favoritesOptions.parentElement.removeChild(favoritesOptions);
-		main.appendChild(favoritesOptions);
+		mobileOptionsArea.appendChild(favoritesOptions);
 
 		// move photos section to end of page
 		photos = document.getElementById("photos");
@@ -442,14 +443,6 @@ function handleMediaChange(mediaQueryList) {
 		toolbar.appendChild(filterOptions);
 		toolbar.appendChild(favItem);
 		toolbar.appendChild(favoritesOptions);
-		// for(var i = 0; i < 3; i++) {
-		// 	items[i].parentElement.removeChild(items[i]);
-		// }
-		// for(var i = 0; i < 3; i++) {
-		// 	options[i].parentElement.removeChild(options[i]);
-		// 	toolbar.appendChild(items[i]);
-		// 	toolbar.appendChild(options[i]);
-		// }
 		// move toolbar section to right of page
 		toolbar.parentElement.removeChild(toolbar);
 		main.appendChild(toolbar);
