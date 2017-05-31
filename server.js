@@ -70,6 +70,53 @@ app.post('/', function (request, response){
                 console.log("Got API error"); 
             } else {
                 APIresponseJSON = body.responses[0];
+
+                var labels = APIresponseJSON.labelAnnotations;
+                var str = "";
+                for(var i = 0; i < labels.length; i++) {
+                    str = str + labels[i].description + " ";
+                }
+
+                db.get(
+                'SELECT labels FROM photoLabels WHERE fileName = ?',
+                [fileName], addLabels);
+
+ 
+                function addLabels(err,data) {
+                    console.log("getting labels from "+fileName);
+                    if (err) {
+                        console.log("error: ",err,"\n");
+                    } else {
+                        db.run(
+                        'UPDATE photoLabels SET labels = ? WHERE fileName = ?',
+                        [data.labels+str, imageFile],
+                        finalCallback);
+                    }
+                }
+
+                // Also define this inside queries so it knows about
+                // response object
+                function finalCallback(err) {
+                    console.log("updating labels for "+fileName+"\n");
+                    if (err) {
+                        console.log(err+"\n");
+                        sendCode(400,response,"requested photo not found");         
+                    } else {
+                        // send a nice response back to browser
+                        response.status(200);
+                        response.type("text/plain");
+                        response.send("added label(s) "+str+" to "+fileName);
+                    }
+                }
+
+
+
+
+
+
+
+
+
                 console.log("success");
                 response.status(200);
                 response.type("text/plain");
