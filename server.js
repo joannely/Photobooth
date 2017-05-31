@@ -70,18 +70,22 @@ app.post('/', function (request, response){
                 console.log("Got API error"); 
             } else {
                 APIresponseJSON = body.responses[0];
-                console.log(APIresponseJSON);
+                //console.log(APIresponseJSON);
+                console.log("success");
+                response.status(200);
+                response.type("text/plan");
+                response.send(APIresponseJSON);
             }
         }
 
 
 
-    	console.log('success');
-    	sendCode(201,response,'recieved file');  // respond to browser
+    	// console.log('success');
+    	// sendCode(201,response,'recieved file');  // respond to browser
+
     });
 
 });
-
 
 
 app.listen(10305);

@@ -386,6 +386,13 @@ function uploadFile() {
 	    image.parentElement.parentElement.getElementsByClassName("labelArea")[0].getElementsByClassName("addLabelButton")[0].style.display = "none";
 
 	    image.parentElement.getElementsByClassName("menuIcon")[0].style.display = "inline-flex";
+
+
+	   var data = JSON.parse(this.responseText);
+	   alert(data);
+
+
+
 	}
 	var fr = new FileReader();
 	fr.onload = function() {
@@ -394,6 +401,57 @@ function uploadFile() {
 	}
 	fr.readAsDataURL(selectedFile);
 }
+
+
+
+
+
+
+// function addLabel(e) {
+// 	if(e.target) {
+// 		var l = e.target.parentElement.getElementsByClassName("inputLabel")[0].value;
+// 		lString = l.split(' ').join('%'); 
+// 		var imgName = e.target.parentElement.parentElement.getElementsByClassName("photoContainer")[0].firstChild.id;
+// 		var url = "http://138.68.25.50:"+PORT_NO+"/query?img="+imgName+"&label="+lString+"&op=add";
+// 		function reqListener() {
+// 			e.target.parentElement.getElementsByClassName("inputLabel")[0].value = "";
+// 			var labelBox = e.target.parentElement.firstChild;
+// 			var labelItem = document.createElement("div");
+// 			labelItem.setAttribute("class", "labelItem");
+// 			var deleteLabel = document.createElement("img");
+// 			deleteLabel.setAttribute("class", "deleteLabel");
+// 			deleteLabel.setAttribute("src", "../photobooth/removeTagButton.png");
+// 			deleteLabel.onclick = delLabel;
+// 			var labelText = document.createElement("div");
+// 			labelText.setAttribute("class", "labelText");
+
+// 			labelItem.appendChild(deleteLabel);
+// 			labelItem.appendChild(labelText);
+// 			labelBox.appendChild(labelItem);
+// 			labelText.textContent = l;
+
+// 			if(labelBox.getElementsByClassName("labelItem").length == 10) {
+// 				e.target.style.display = "none";
+// 			}			
+// 		}
+// 		var oReq = new XMLHttpRequest();
+// 		oReq.addEventListener("load", reqListener);
+// 		oReq.open("GET", url);
+// 		oReq.send();
+// 	}
+
+// }
+
+
+
+
+
+
+
+
+
+
+
 
 function showUploadOptions() {
 	var div = document.getElementById("uploadOptions");
