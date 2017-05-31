@@ -89,7 +89,7 @@ app.post('/', function (request, response){
                     } else {
                         db.run(
                         'UPDATE photoLabels SET labels = ? WHERE fileName = ?',
-                        [data.labels+str, imageFile],
+                        [data.labels+str, fileName],
                         finalCallback);
                     }
                 }
