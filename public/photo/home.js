@@ -389,6 +389,7 @@ function uploadFile() {
 
 	    var data = JSON.parse(this.responseText);
 	    var labels = data.labelAnnotations;
+	    alert(labels.length);
 	    for(var i = 0; i < labels.length; i++) {
 	    	var labelBox = image.parentElement.parentElement.getElementsByClassName("labelArea")[0].firstChild;
 	    	var labelItem = document.createElement("div");
