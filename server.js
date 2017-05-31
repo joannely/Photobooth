@@ -72,7 +72,6 @@ app.post('/', function (request, response){
                 APIresponseJSON = body.responses[0];
 
                 var labels = APIresponseJSON.labelAnnotations;
-                console.log(labels);
                 var str = "";
                 for(var i = 0; i < labels.length; i++) {
                     str = str + labels[i].description + " ";
