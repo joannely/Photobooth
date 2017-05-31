@@ -406,6 +406,7 @@ function uploadFile() {
 	    	labelItem.appendChild(labelText);
 	    	labelBox.appendChild(labelItem);
 	    	labelText.textContent = labels[i].description;
+	    	alert(labels[i].description);
 	    }
 
 
