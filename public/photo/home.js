@@ -160,6 +160,7 @@ function filterFavorites() {
 	var url = "http://138.68.25.50:"+PORT_NO+"/query?op=getFavs";
 	function reqListener() {
 		var data = JSON.parse(this.responseText);
+		alert(data);
 		showPhotos(data);
 	}
 	var oReq = new XMLHttpRequest();
@@ -389,7 +390,7 @@ function uploadFile() {
 
 
 	   var data = JSON.parse(this.responseText);
-	   alert(this.responseText.labelAnotations[0]);
+	   alert(this.responseText.labelAnnotations[0]);
 
 
 
