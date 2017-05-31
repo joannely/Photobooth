@@ -69,7 +69,7 @@ app.post('/', function (request, response){
             if ((err) || (APIresponse.statusCode != 200)) {
                 console.log("Got API error"); 
             } else {
-                APIresponseJSON = body.responses[0];
+                APIresponseJSON = body.responses;
                 console.log(body.responses);
                 console.log("success");
                 response.status(200);
