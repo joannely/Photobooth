@@ -101,13 +101,7 @@ app.post('/', function (request, response){
                     console.log("updating labels for "+fileName+"\n");
                     if (err) {
                         console.log(err+"\n");
-                        sendCode(400,response,"requested photo not found");         
-                    } else {
-                        // send a nice response back to browser
-                        response.status(200);
-                        response.type("text/plain");
-                        response.send("added label(s) "+str+" to "+fileName);
-                    }
+                    } 
                 }
 
 
