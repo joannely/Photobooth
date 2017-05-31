@@ -379,38 +379,37 @@ function uploadFile() {
 	oReq.send(formData); 
 
 	oReq.onreadystatechange = function() { // done uploading
-	    image.style.opacity = 1;
-	    image.parentElement.parentElement.getElementsByClassName("progressBar")[0].style.display = "none";
-	    image.parentElement.parentElement.getElementsByClassName("labelArea")[0].style.display = "block";
-	    image.parentElement.parentElement.getElementsByClassName("labelArea")[0].getElementsByClassName("inputLabel")[0].style.display = "none";
-	    image.parentElement.parentElement.getElementsByClassName("labelArea")[0].getElementsByClassName("addLabelButton")[0].style.display = "none";
+		if(oReq.readyState === XMLHttpRequest.DONE) {
+		    image.style.opacity = 1;
+		    image.parentElement.parentElement.getElementsByClassName("progressBar")[0].style.display = "none";
+		    image.parentElement.parentElement.getElementsByClassName("labelArea")[0].style.display = "block";
+		    image.parentElement.parentElement.getElementsByClassName("labelArea")[0].getElementsByClassName("inputLabel")[0].style.display = "none";
+		    image.parentElement.parentElement.getElementsByClassName("labelArea")[0].getElementsByClassName("addLabelButton")[0].style.display = "none";
 
-	    image.parentElement.getElementsByClassName("menuIcon")[0].style.display = "inline-flex";
+		    image.parentElement.getElementsByClassName("menuIcon")[0].style.display = "inline-flex";
 
-	    var data = JSON.parse(this.responseText);
-	    var labels = data.labelAnnotations;
-	    alert(labels.length);
-	    for(var i = 0; i < labels.length; i++) {
-	    	var labelBox = image.parentElement.parentElement.getElementsByClassName("labelArea")[0].firstChild;
-	    	var labelItem = document.createElement("div");
-	    	labelItem.setAttribute("class", "labelItem");
-	    	var deleteLabel = document.createElement("img");
-	    	deleteLabel.setAttribute("class", "deleteLabel");
-	    	deleteLabel.setAttribute("src", "../photobooth/removeTagButton.png");
-	    	deleteLabel.onclick = delLabel;
-	    	deleteLabel.style.display = "none";
-	    	var labelText = document.createElement("div");
-	    	labelText.setAttribute("class", "labelText");
+		    var data = JSON.parse(this.responseText);
+		    var labels = data.labelAnnotations;
+		    alert(labels.length);
+		    for(var i = 0; i < labels.length; i++) {
+		    	var labelBox = image.parentElement.parentElement.getElementsByClassName("labelArea")[0].firstChild;
+		    	var labelItem = document.createElement("div");
+		    	labelItem.setAttribute("class", "labelItem");
+		    	var deleteLabel = document.createElement("img");
+		    	deleteLabel.setAttribute("class", "deleteLabel");
+		    	deleteLabel.setAttribute("src", "../photobooth/removeTagButton.png");
+		    	deleteLabel.onclick = delLabel;
+		    	deleteLabel.style.display = "none";
+		    	var labelText = document.createElement("div");
+		    	labelText.setAttribute("class", "labelText");
 
-	    	labelItem.appendChild(deleteLabel);
-	    	labelItem.appendChild(labelText);
-	    	labelBox.appendChild(labelItem);
-	    	labelText.textContent = labels[i].description;
-	    	alert(labels[i].description);
-	    }
-
-
-
+		    	labelItem.appendChild(deleteLabel);
+		    	labelItem.appendChild(labelText);
+		    	labelBox.appendChild(labelItem);
+		    	labelText.textContent = labels[i].description;
+		    	alert(labels[i].description);
+		    }			
+		}
 	}
 	var fr = new FileReader();
 	fr.onload = function() {

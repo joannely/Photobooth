@@ -70,7 +70,6 @@ app.post('/', function (request, response){
                 console.log("Got API error"); 
             } else {
                 APIresponseJSON = body.responses[0];
-                console.log(APIresponseJSON.labelAnnotations.length);
                 console.log("success");
                 response.status(200);
                 response.type("text/plain");
