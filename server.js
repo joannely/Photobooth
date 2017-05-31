@@ -62,7 +62,7 @@ app.post('/', function (request, response){
             url: url,
             method: "POST",
             headers: {"content-type": "application/json"},
-            json: requestObject;
+            json: requestObject,
         }, APIcallback);
 
         function APIcallback(err, APIresonpose, body) {
