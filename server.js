@@ -84,13 +84,6 @@ app.post('/', function (request, response){
 
 
 
-
-
-url = 'https://vision.googleapis.com/v1/
-images:annotate?key=AIzaSyBMUxZlsk0bUbvJ_5auJkd2ObARsECX04I'; 
-
-
-
 app.listen(10305);
 
 // sends off an HTTP response with the given status code and message
