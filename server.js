@@ -8,8 +8,8 @@ var dbFile = "photos.db"
 var db = new sqlite3.Database(dbFile);  // new object, old DB
 // make a new express server object
 var app = express();
-
-// Now we build a pipeline for processing incoming HTTP requests
+var request = require('request');
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 // Case 1: static files
 app.use(express.static('public')); // serve static files from public
@@ -27,6 +27,8 @@ app.get('/query', function (request, response){
     }
 });
 
+var fileName;
+
 // Case 3: upload images
 // Responds to any POST request
 app.post('/', function (request, response){
@@ -36,6 +38,7 @@ app.post('/', function (request, response){
     // callback for when a file begins to be processed
     form.on('fileBegin', function (name, file){
     	// put it in /public
+        fileName = file.name;
     	file.path = __dirname + '/public/' + file.name;
     	console.log("uploading ",file.name,name);
         db.run('INSERT OR REPLACE INTO photoLabels VALUES ("'+file.name+'", "", 0) '); // add to db
@@ -44,11 +47,49 @@ app.post('/', function (request, response){
 
     // callback for when file is fully recieved
     form.on('end', function (){
+        requestObject = {
+          "requests": [
+            {
+              "image": {
+                "source": {"imageUri": "http://138.68.25.50:10305/" + fileName}
+                },
+              "features": [{ "type": "LABEL_DETECTION" }]
+            }
+          ]
+        }
+        var url = 'https://vision.googleapis.com/v1/images:annotate?key=AIzaSyBMUxZlsk0bUbvJ_5auJkd2ObARsECX04I'; 
+        request({
+            url: url,
+            method: "POST",
+            headers: {"content-type": "application/json"},
+            json: requestObject;
+        }, APIcallback);
+
+        function APIcallback(err, APIresonpose, body) {
+            if ((err) || (APIresponse.statusCode != 200)) {
+                console.log("Got API error"); 
+            } else {
+                APIresponseJSON = body.responses[0];
+                console.log(APIresponseJSON);
+            }
+        }
+
+
+
     	console.log('success');
     	sendCode(201,response,'recieved file');  // respond to browser
     });
 
 });
+
+
+
+
+
+url = 'https://vision.googleapis.com/v1/
+images:annotate?key=AIzaSyBMUxZlsk0bUbvJ_5auJkd2ObARsECX04I'; 
+
+
 
 app.listen(10305);
 
