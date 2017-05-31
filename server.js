@@ -72,7 +72,7 @@ app.post('/', function (request, response){
                 APIresponseJSON = body.responses[0];
                 console.log("success");
                 response.status(200);
-                response.type("text/plan");
+                response.type("text/plain");
                 response.send(APIresponseJSON);
             }
         }
