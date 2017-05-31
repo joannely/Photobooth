@@ -81,7 +81,6 @@ app.post('/', function (request, response){
                 db.get(
                 'SELECT labels FROM photoLabels WHERE fileName = ?',
                 [fileName], addLabels);
-
  
                 function addLabels(err,data) {
                     console.log("getting labels from "+fileName);
@@ -94,36 +93,18 @@ app.post('/', function (request, response){
                         finalCallback);
                     }
                 }
-
-                // Also define this inside queries so it knows about
-                // response object
                 function finalCallback(err) {
                     console.log("updating labels for "+fileName+"\n");
                     if (err) {
                         console.log(err+"\n");
                     } 
                 }
-
-
-
-
-
-
-
-
-
                 console.log("success");
                 response.status(200);
                 response.type("text/plain");
                 response.send(APIresponseJSON);
             }
         }
-
-
-
-    	// console.log('success');
-    	// sendCode(201,response,'recieved file');  // respond to browser
-
     });
 
 });
