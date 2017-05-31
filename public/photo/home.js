@@ -389,7 +389,7 @@ function uploadFile() {
 
 
 	   var data = JSON.parse(this.responseText);
-	   alert(this.responseText);
+	   alert(this.responseText.labelAnotations[0]);
 
 
 
