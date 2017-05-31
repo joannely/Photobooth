@@ -65,7 +65,7 @@ app.post('/', function (request, response){
             json: requestObject,
         }, APIcallback);
 
-        function APIcallback(err, APIresonpose, body) {
+        function APIcallback(err, APIresponse, body) {
             if ((err) || (APIresponse.statusCode != 200)) {
                 console.log("Got API error"); 
             } else {
