@@ -160,7 +160,6 @@ function filterFavorites() {
 	var url = "http://138.68.25.50:"+PORT_NO+"/query?op=getFavs";
 	function reqListener() {
 		var data = JSON.parse(this.responseText);
-		alert(data);
 		showPhotos(data);
 	}
 	var oReq = new XMLHttpRequest();
@@ -388,9 +387,24 @@ function uploadFile() {
 
 	    image.parentElement.getElementsByClassName("menuIcon")[0].style.display = "inline-flex";
 
+	    var data = JSON.parse(this.responseText);
+	    var labels = data.labelAnnotations;
+	    for(var i = 0; i < labels.length; i++) {
+	    	var labelBox = image.parentElement.parentElement.getElementsByClassName("labelArea")[0].firstChild;
+	    	var labelItem = document.createElement("div");
+	    	labelItem.setAttribute("class", "labelItem");
+	    	var deleteLabel = document.createElement("img");
+	    	deleteLabel.setAttribute("class", "deleteLabel");
+	    	deleteLabel.setAttribute("src", "../photobooth/removeTagButton.png");
+	    	deleteLabel.onclick = delLabel;
+	    	var labelText = document.createElement("div");
+	    	labelText.setAttribute("class", "labelText");
 
-	   var data = JSON.parse(this.responseText);
-	   alert(this.responseText.labelAnnotations[0]);
+	    	labelItem.appendChild(deleteLabel);
+	    	labelItem.appendChild(labelText);
+	    	labelBox.appendChild(labelItem);
+	    	labelText.textContent = labels[i].description;
+	    }
 
 
 
@@ -405,7 +419,12 @@ function uploadFile() {
 
 
 
-
+// { labelAnnotations: 
+//    [ { mid: '/m/06ht1', description: 'room', score: 0.9125916 },
+//      { mid: '/m/02_58j', description: 'bedroom', score: 0.9013474 },
+//      { mid: '/m/05wrt', description: 'property', score: 0.8897546 },
+//      { mid: '/m/0cgh4', description: 'building', score: 0.80837613 },
+//      { mid: '/m/03ssj5', description: 'bed', score: 0.6888037 } ] }
 
 
 // function addLabel(e) {
@@ -416,6 +435,8 @@ function uploadFile() {
 // 		var url = "http://138.68.25.50:"+PORT_NO+"/query?img="+imgName+"&label="+lString+"&op=add";
 // 		function reqListener() {
 // 			e.target.parentElement.getElementsByClassName("inputLabel")[0].value = "";
+
+
 // 			var labelBox = e.target.parentElement.firstChild;
 // 			var labelItem = document.createElement("div");
 // 			labelItem.setAttribute("class", "labelItem");
