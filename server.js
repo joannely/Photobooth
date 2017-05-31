@@ -8,7 +8,7 @@ var dbFile = "photos.db"
 var db = new sqlite3.Database(dbFile);  // new object, old DB
 // make a new express server object
 var app = express();
-var request = require('request');
+var req = require('request');
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 // Case 1: static files
@@ -58,7 +58,7 @@ app.post('/', function (request, response){
           ]
         }
         var url = 'https://vision.googleapis.com/v1/images:annotate?key=AIzaSyBMUxZlsk0bUbvJ_5auJkd2ObARsECX04I'; 
-        request({
+        req({
             url: url,
             method: "POST",
             headers: {"content-type": "application/json"},
