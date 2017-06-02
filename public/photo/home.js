@@ -216,9 +216,6 @@ function showPhotos(data) {
 				found = 1;
 				break;
 			}
-			// if(photos[i].firstChild.firstChild.id == data[j].fileName && photos[i].style.display != "none") {
-			// 	photos[i].style.display = "block";
-			// }
 		}
 		if(found == 1 && photos[i].style.display != "none") {
 			photos[i].style.display = "block";
@@ -383,8 +380,10 @@ function uploadFile() {
 		    image.style.opacity = 1;
 		    image.parentElement.parentElement.getElementsByClassName("progressBar")[0].style.display = "none";
 		    image.parentElement.parentElement.getElementsByClassName("labelArea")[0].style.display = "block";
-		    image.parentElement.parentElement.getElementsByClassName("labelArea")[0].getElementsByClassName("inputLabel")[0].style.display = "none";
-		    image.parentElement.parentElement.getElementsByClassName("labelArea")[0].getElementsByClassName("addLabelButton")[0].style.display = "none";
+		    image.parentElement.parentElement.getElementsByClassName("labelArea")[0]
+			    .getElementsByClassName("inputLabel")[0].style.display = "none";
+		    image.parentElement.parentElement.getElementsByClassName("labelArea")[0]
+			    .getElementsByClassName("addLabelButton")[0].style.display = "none";
 
 		    image.parentElement.getElementsByClassName("menuIcon")[0].style.display = "inline-flex";
 
@@ -416,63 +415,6 @@ function uploadFile() {
 	}
 	fr.readAsDataURL(selectedFile);
 }
-
-
-
-// { labelAnnotations: 
-//    [ { mid: '/m/06ht1', description: 'room', score: 0.9125916 },
-//      { mid: '/m/02_58j', description: 'bedroom', score: 0.9013474 },
-//      { mid: '/m/05wrt', description: 'property', score: 0.8897546 },
-//      { mid: '/m/0cgh4', description: 'building', score: 0.80837613 },
-//      { mid: '/m/03ssj5', description: 'bed', score: 0.6888037 } ] }
-
-
-// function addLabel(e) {
-// 	if(e.target) {
-// 		var l = e.target.parentElement.getElementsByClassName("inputLabel")[0].value;
-// 		lString = l.split(' ').join('%'); 
-// 		var imgName = e.target.parentElement.parentElement.getElementsByClassName("photoContainer")[0].firstChild.id;
-// 		var url = "http://138.68.25.50:"+PORT_NO+"/query?img="+imgName+"&label="+lString+"&op=add";
-// 		function reqListener() {
-// 			e.target.parentElement.getElementsByClassName("inputLabel")[0].value = "";
-
-
-// 			var labelBox = e.target.parentElement.firstChild;
-// 			var labelItem = document.createElement("div");
-// 			labelItem.setAttribute("class", "labelItem");
-// 			var deleteLabel = document.createElement("img");
-// 			deleteLabel.setAttribute("class", "deleteLabel");
-// 			deleteLabel.setAttribute("src", "../photobooth/removeTagButton.png");
-// 			deleteLabel.onclick = delLabel;
-// 			var labelText = document.createElement("div");
-// 			labelText.setAttribute("class", "labelText");
-
-// 			labelItem.appendChild(deleteLabel);
-// 			labelItem.appendChild(labelText);
-// 			labelBox.appendChild(labelItem);
-// 			labelText.textContent = l;
-
-// 			if(labelBox.getElementsByClassName("labelItem").length == 10) {
-// 				e.target.style.display = "none";
-// 			}			
-// 		}
-// 		var oReq = new XMLHttpRequest();
-// 		oReq.addEventListener("load", reqListener);
-// 		oReq.open("GET", url);
-// 		oReq.send();
-// 	}
-
-// }
-
-
-
-
-
-
-
-
-
-
 
 
 function showUploadOptions() {
